@@ -8,8 +8,13 @@ import javax.persistence.OneToMany;
 @Entity
 public class Vehicles extends BaseModel {
 
-    @Column(name = "numer_nadwozia")
-    private String body_nr;
+    @Column(name = "rodzaj_auta")
+    @OneToMany
+    @JoinColumn("vehicleType_id")
+    private VehicleType vehicleType;
+
+    @Column(name = "VIN")
+    private String vin;
 
     @Column(name = "rok_produkcji")
     private Integer productionYear;
@@ -18,7 +23,9 @@ public class Vehicles extends BaseModel {
     private String manufacturer;
 
     @Column(name = "model")
-    private String model;
+    @OneToMany
+    @JoinColumn
+    private CarModel model;
 
     @Column(name = "numer_ubezpieczenia")
     private String insuranceNumber;
@@ -50,4 +57,6 @@ public class Vehicles extends BaseModel {
 
     @Column(name = "ilość_jazd_próbnych")
     private Integer testDrives;
+
+
 }
