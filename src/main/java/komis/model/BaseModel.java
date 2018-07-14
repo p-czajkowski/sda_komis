@@ -1,4 +1,4 @@
-package model;
+package komis.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,4 +12,12 @@ public abstract class BaseModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
