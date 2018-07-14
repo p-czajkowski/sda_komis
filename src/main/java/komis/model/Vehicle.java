@@ -3,63 +3,50 @@ package komis.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "clients")
-public class Vehicles extends BaseModel {
+@Table(name = "vehicles")
+public class Vehicle extends BaseModel {
 
-    @Column(name = "vehicle_type")
-    @JoinColumn(name = "vehicleType_id")
+    @OneToOne
+    @JoinColumn(name = "vehicleTypeId")
     private VehicleType vehicleType;
-
     @Column(name = "VIN")
     private String vin;
-
     @Column(name = "prod_year")
     private Integer productionYear;
-
-    @Column(name = "man")
-    private String manufacturer;
-
-    @Column(name = "model")
-    @JoinColumn
+    @OneToOne
+    @JoinColumn(name = "carManufacturerId")
+    private Manufacturer manufacturer;
+    @OneToOne
+    @JoinColumn(name = "carModelId")
     private CarModel model;
-
     @Column(name = "insurance_nr")
     private String insuranceNumber;
-
-    @Column(name = "plate_number")
-    private String plateNumber;
-
-    @Column(name = "fuel_type")
-    @JoinColumn(name = "fuel_id")
+    @Column(name = "car_registration")
+    private String carRegistration;
+    @OneToOne
+    @JoinColumn(name = "fuelId")
     private Fuel fuel;
-
     @Column(name = "mileage")
     private Integer mileage;
-
     @Column(name = "engine")
     private String engine;
-
     @Column(name = "power")
     private Integer power;
-
-    @Column(name = "transmission")
-    @JoinColumn(name = "gear_box_id")
-    private GearBox gearbox;
-
+    @OneToOne
+    @JoinColumn(name = "transmissionId")
+    private Transmission transmission;
     @Column(name = "description")
     private String description;
-
     @Column(name = "test_drives")
     private Integer testDrives;
-
     @Column()
     private boolean sold;
 
-    public komis.model.VehicleType getVehicleType() {
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(komis.model.VehicleType vehicleType) {
+    public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
 
@@ -79,19 +66,19 @@ public class Vehicles extends BaseModel {
         this.productionYear = productionYear;
     }
 
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
-    public komis.model.CarModel getModel() {
+    public CarModel getModel() {
         return model;
     }
 
-    public void setModel(komis.model.CarModel model) {
+    public void setModel(CarModel model) {
         this.model = model;
     }
 
@@ -103,19 +90,19 @@ public class Vehicles extends BaseModel {
         this.insuranceNumber = insuranceNumber;
     }
 
-    public String getPlateNumber() {
-        return plateNumber;
+    public String getCarRegistration() {
+        return carRegistration;
     }
 
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
+    public void setCarRegistration(String plateNumber) {
+        this.carRegistration = plateNumber;
     }
 
-    public komis.model.Fuel getFuel() {
+    public Fuel getFuel() {
         return fuel;
     }
 
-    public void setFuel(komis.model.Fuel fuel) {
+    public void setFuel(Fuel fuel) {
         this.fuel = fuel;
     }
 
@@ -143,12 +130,12 @@ public class Vehicles extends BaseModel {
         this.power = power;
     }
 
-    public komis.model.GearBox getGearbox() {
-        return gearbox;
+    public Transmission getTransmission() {
+        return transmission;
     }
 
-    public void setGearbox(komis.model.GearBox gearbox) {
-        this.gearbox = gearbox;
+    public void setTransmission(Transmission gearbox) {
+        this.transmission = gearbox;
     }
 
     public String getDescription() {

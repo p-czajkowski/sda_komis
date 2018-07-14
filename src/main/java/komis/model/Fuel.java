@@ -6,9 +6,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "fuels")
-public class Fuel extends BaseModel{
+public class Fuel extends BaseModel {
 
-    @Column
+    @Column(name = "fuel_type")
     private String fuelType;
 
     public String getFuelType() {

@@ -1,21 +1,16 @@
 package komis.model;
 
-import komis.model.carModel.CarManufacturer;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "car_models")
+@Table(name = "vehicle_models")
 public class CarModel extends BaseModel {
 
-    @Column
+    @Column(name = "model")
     private String model;
-
-    @JoinColumn(name = "manufacturer_id")
-    private CarManufacturer carManufacturer;
+    @ManyToOne
+    @JoinColumn(name = "carManufacturerId")
+    private Manufacturer manufacturer;
 
     public String getModel() {
         return model;
@@ -25,11 +20,11 @@ public class CarModel extends BaseModel {
         this.model = model;
     }
 
-    public CarManufacturer getCarManufacturer() {
-        return carManufacturer;
+    public Manufacturer getManufacturer() {
+        return manufacturer;
     }
 
-    public void setCarManufacturer(CarManufacturer carManufacturer) {
-        this.carManufacturer = carManufacturer;
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
     }
 }
