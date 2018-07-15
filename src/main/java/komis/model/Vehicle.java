@@ -19,9 +19,9 @@ public class Vehicle extends BaseModel {
     @OneToOne
     @JoinColumn(name = "carModelId")
     private CarModel model;
-    @Column(name = "insurance_nr")
+    @Column(name = "insuranceNo")
     private String insuranceNumber;
-    @Column(name = "car_registration")
+    @Column(name = "carRegistration")
     private String carRegistration;
     @OneToOne
     @JoinColumn(name = "fuelId")
