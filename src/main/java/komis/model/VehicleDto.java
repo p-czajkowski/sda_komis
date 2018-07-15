@@ -1,56 +1,23 @@
 package komis.model;
 
-import javax.persistence.*;
+public class VehicleDto {
 
-@Entity
-@Table(name = "vehicles")
-public class Vehicle extends BaseModel {
-
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "vehicleTypeId")
     private VehicleType vehicleType;
-    @Column(name = "VIN")
     private String vin;
-    @Column(name = "prod_year")
     private Integer productionYear;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "carManufacturerId")
     private Manufacturer manufacturer;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "carModelId")
     private CarModel model;
-    @Column(name = "insuranceNo")
     private String insuranceNumber;
-    @Column(name = "carRegistration")
     private String carRegistration;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "fuelId")
     private Fuel fuel;
-    @Column(name = "mileage")
     private Integer mileage;
-    @Column(name = "engine")
     private String engine;
-    @Column(name = "power")
     private Integer power;
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "transmissionId")
     private Transmission transmission;
-    @Column(name = "description")
     private String description;
-    @Column(name = "test_drives")
     private Integer testDrives;
-    @Column()
     private boolean sold;
-    @Column()
     private Integer price;
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
 
     public VehicleType getVehicleType() {
         return vehicleType;
@@ -104,8 +71,8 @@ public class Vehicle extends BaseModel {
         return carRegistration;
     }
 
-    public void setCarRegistration(String plateNumber) {
-        this.carRegistration = plateNumber;
+    public void setCarRegistration(String carRegistration) {
+        this.carRegistration = carRegistration;
     }
 
     public Fuel getFuel() {
@@ -144,8 +111,8 @@ public class Vehicle extends BaseModel {
         return transmission;
     }
 
-    public void setTransmission(Transmission gearbox) {
-        this.transmission = gearbox;
+    public void setTransmission(Transmission transmission) {
+        this.transmission = transmission;
     }
 
     public String getDescription() {
@@ -170,5 +137,13 @@ public class Vehicle extends BaseModel {
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

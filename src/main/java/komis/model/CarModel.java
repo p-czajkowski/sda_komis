@@ -7,17 +7,17 @@ import javax.persistence.*;
 public class CarModel extends BaseModel {
 
     @Column(name = "model")
-    private String model;
+    private String name;
     @ManyToOne
     @JoinColumn(name = "carManufacturerId")
     private Manufacturer manufacturer;
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setName(String model) {
+        this.name = model;
     }
 
     public Manufacturer getManufacturer() {

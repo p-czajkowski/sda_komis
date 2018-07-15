@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" encoding="windows-1250"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"/>
+
+    <title>Dodaj samochód</title>
+</head>
+    <body>
+    <form th:action="@{/vehicles}" th:object="${addedVehicle}" th:method="POST">
+        <table>
+            <tr>
+                <td>Marka</td>
+                <td><input type="text" th:field="*{manufacturer.name}"/></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td><input type="text" th:field="*{model.name}"/></td>
+            </tr>
+            <tr>
+                <td>Paliwo</td>
+                <td><input type="text" th:field="*{fuel.fuelType}"/></td>
+            </tr>
+            <tr>
+                <td>Rok produkcji</td>
+                <td><input type="text" th:field="*{productionYear}"/></td>
+            </tr>
+            <tr>
+                <td>Przebieg</td>
+                <td><input type="text" th:field="*{mileage}"/></td>
+            </tr>
+            <tr>
+                <td>Silnik</td>
+                <td><input type="text" th:field="*{engine}"/></td>
+            </tr>
+            <tr>
+                <td>Moc (KM)</td>
+                <td><input type="text" th:field="*{power}"/></td>
+            </tr>
+            <tr>
+                <td>Skrzynia biegów</td>
+                <td><input type="text" th:field="*{transmission.name}"/></td>
+            </tr>
+            <tr>
+                <td>Nr dowodu rej.</td>
+                <td><input type="text" th:field="*{carRegistration}"/></td>
+            </tr>
+            <tr>
+                <td>VIN</td>
+                <td><input type="text" th:field="*{vin}"/></td>
+            </tr>
+            <tr>
+                <td>Typ</td>
+                <td><input type="text" th:field="*{vehicleType.type}"/></td>
+            </tr>
+            <tr>
+                <td>Nr OC</td>
+                <td><input type="text" th:field="*{insuranceNumber}"/></td>
+            </tr>
+            <tr>
+                <td>Cena</td>
+                <td><input type="text" th:field="*{price}"/></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Dodaj szczegóły"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    </body>
+</html>

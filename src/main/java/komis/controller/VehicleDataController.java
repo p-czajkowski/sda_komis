@@ -1,16 +1,14 @@
 package komis.controller;
 
+import komis.model.Manufacturer;
 import komis.model.Vehicle;
+import komis.model.VehicleDto;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
 
 @Controller
 @RequestMapping("/vehicles")
@@ -23,16 +21,16 @@ public class VehicleDataController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    private String showAvailableVehicles(Model model) {
-        List<Vehicle> vehicles = vehicleDataService.loadVehiclesThatCanBeSold();
-        vehicles.sort(Comparator.comparing(Vehicle::getId));
-        model.addAttribute("vehiclesList", vehicles);
+    public String showAvailableVehicles(Model model) {
+        List<Vehicle> vehicle = vehicleDataService.loadVehiclesThatCanBeSold();
+        model.addAttribute("vehiclesList", vehicle);
         return "vehicleList";
     }
 
     @RequestMapping("/{id}")
-    public String getCar(
-            @PathVariable("id") Integer vehicleId, Model model){
+    public String getVehicle(
+            @PathVariable("id")
+                    Integer vehicleId, Model model){
         Vehicle vehicle = vehicleDataService.getById(vehicleId);
         if (vehicleId != null) {
             model.addAttribute("vehicle", vehicle);
@@ -40,5 +38,34 @@ public class VehicleDataController {
         return "vehicleDetails";
     }
 
+    @GetMapping("/new")
+    public String addVehicleForm(Model model){
+        model.addAttribute("addedVehicle", new Vehicle());
+        return "addVehicle";
+    }
+
+    @PostMapping
+    public String saveVehicle(
+            @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved){
+
+        Vehicle vehicle = new Vehicle();
+
+        vehicle.setManufacturer(vehicleToBeSaved.getManufacturer());
+        vehicle.setModel(vehicleToBeSaved.getModel());
+        vehicle.setMileage(vehicleToBeSaved.getMileage());
+        vehicle.setFuel(vehicleToBeSaved.getFuel());
+        vehicle.setEngine(vehicleToBeSaved.getEngine());
+        vehicle.setTransmission(vehicleToBeSaved.getTransmission());
+        vehicle.setProductionYear(vehicleToBeSaved.getProductionYear());
+        vehicle.setCarRegistration(vehicleToBeSaved.getCarRegistration());
+        vehicle.setInsuranceNumber(vehicleToBeSaved.getInsuranceNumber());
+        vehicle.setPower(vehicleToBeSaved.getPower());
+        vehicle.setDescription(vehicleToBeSaved.getDescription());
+        vehicle.setTestDrives(vehicleToBeSaved.getTestDrives());
+        vehicle.setPrice(vehicleToBeSaved.getPrice());
+
+        vehicleDataService.addVehicle(vehicle);
+        return "redirect:/vehicles";
+    }
 
 }
