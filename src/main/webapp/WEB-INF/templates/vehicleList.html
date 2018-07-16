@@ -26,7 +26,7 @@
                 <td th:text="${vehicle.productionYear}"/>
                 <td th:text="${vehicle.engine}"/>
                 <td th:text="${vehicle.fuel.fuelType}"/>
-                <td><a th:href="@{/vehicles/{vehicleId} (vehicleId=${vehicle.id})}" th:text="Szczegóły"/></td>
+                <td><a th:href="@{/auto-komis-sda/{vehicleId} (vehicleId=${vehicle.id})}" th:text="Szczegóły"/></td>
             </tr>
         </table>
 

@@ -11,7 +11,10 @@
     <title>Dodaj samochód</title>
 </head>
     <body>
-    <form th:action="@{/vehicles}" th:object="${addedVehicle}" th:method="POST">
+
+    <h1>Dodaj pojazd</h1>
+
+    <form th:action="@{/auto-komis-sda}" th:object="${addedVehicle}" th:method="POST">
         <table>
             <tr>
                 <td>Marka</td>
@@ -43,7 +46,14 @@
             </tr>
             <tr>
                 <td>Skrzynia biegów</td>
-                <td><input type="text" th:field="*{transmission.name}"/></td>
+                <td th:width="200">
+                <select name="transmission">
+                    <option value="0">manualna</option>
+                    <option value="1">automat</option>
+                    <option value="2">półautomat</option>
+                </select>
+                </td>
+                <!--<td><input type="text" th:field="*{transmission.name}"/></td>-->
             </tr>
             <tr>
                 <td>Nr dowodu rej.</td>
@@ -62,13 +72,21 @@
                 <td><input type="text" th:field="*{insuranceNumber}"/></td>
             </tr>
             <tr>
+                <td>Opis</td>
+                <td><input type="text" th:field="*{description}"/></td>
+            </tr>
+            <tr>
+                <td>Ilość jazd próbnych</td>
+                <td><input type="text" th:field="*{testDrives}"/></td>
+            </tr>
+            <tr>
                 <td>Cena</td>
                 <td><input type="text" th:field="*{price}"/></td>
             </tr>
 
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="Dodaj szczegóły"/>
+                    <input type="submit" value="Dodaj pojazd"/>
                 </td>
             </tr>
         </table>

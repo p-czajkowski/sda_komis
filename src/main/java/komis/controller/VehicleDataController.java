@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/vehicles")
+@RequestMapping("/auto-komis-sda")
 public class VehicleDataController {
 
    private final VehicleDataService vehicleDataService;
@@ -38,7 +38,7 @@ public class VehicleDataController {
         return "vehicleDetails";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/nowy")
     public String addVehicleForm(Model model){
         model.addAttribute("addedVehicle", new Vehicle());
         return "addVehicle";
@@ -55,7 +55,7 @@ public class VehicleDataController {
         vehicle.setMileage(vehicleToBeSaved.getMileage());
         vehicle.setFuel(vehicleToBeSaved.getFuel());
         vehicle.setEngine(vehicleToBeSaved.getEngine());
-        vehicle.setTransmission(vehicleToBeSaved.getTransmission());
+//        vehicle.setTransmission(vehicleToBeSaved.getTransmission());
         vehicle.setProductionYear(vehicleToBeSaved.getProductionYear());
         vehicle.setCarRegistration(vehicleToBeSaved.getCarRegistration());
         vehicle.setInsuranceNumber(vehicleToBeSaved.getInsuranceNumber());
@@ -65,7 +65,7 @@ public class VehicleDataController {
         vehicle.setPrice(vehicleToBeSaved.getPrice());
 
         vehicleDataService.addVehicle(vehicle);
-        return "redirect:/vehicles";
+        return "redirect:/auto-komis-sda";
     }
 
 }
