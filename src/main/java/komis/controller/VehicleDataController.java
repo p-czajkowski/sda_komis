@@ -1,6 +1,7 @@
 package komis.controller;
 
 import komis.model.Manufacturer;
+import komis.model.PurchaseFormData;
 import komis.model.Vehicle;
 import komis.model.VehicleDto;
 import komis.service.VehicleDataService;
@@ -42,6 +43,14 @@ public class VehicleDataController {
     public String addVehicleForm(Model model){
         model.addAttribute("addedVehicle", new Vehicle());
         return "addVehicle";
+    }
+
+    @GetMapping("/{vehicleId}/sprzedaz")
+    public String sellVehicleForm(
+            @PathVariable("vehicleId") Integer vehicleId, Model model) {
+        model.addAttribute("vehicleId", vehicleId);
+        model.addAttribute("sellData", new PurchaseFormData());
+        return "sellVehicle";
     }
 
     @PostMapping
