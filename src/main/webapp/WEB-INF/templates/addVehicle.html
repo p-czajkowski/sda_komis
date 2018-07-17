@@ -20,6 +20,12 @@
                 <td>Marka</td>
                 <td><input type="text" th:field="*{manufacturer.name}"/></td>
             </tr>
+            <!--<select class="custom-select">-->
+                <!--<option selected>Open this select menu</option>-->
+                <!--<option value="0">manualna</option>-->
+                <!--<option value="1">automatyczna</option>-->
+                <!--<option value="2">pół-automat</option>-->
+            <!--</select>-->
             <tr>
                 <td>Model</td>
                 <td><input type="text" th:field="*{model.name}"/></td>
@@ -47,7 +53,7 @@
             <tr>
                 <td>Skrzynia biegów</td>
                 <td th:width="200">
-                <select name="transmission">
+                <select th:action="transmission" name="transmission">
                     <option value="0">manualna</option>
                     <option value="1">automat</option>
                     <option value="2">półautomat</option>

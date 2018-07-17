@@ -1,6 +1,5 @@
 package komis.controller;
 
-import komis.model.Manufacturer;
 import komis.model.PurchaseFormData;
 import komis.model.Vehicle;
 import komis.model.VehicleDto;
@@ -21,6 +20,7 @@ public class VehicleDataController {
         this.vehicleDataService = vehicleDataService;
     }
 
+
     @RequestMapping(method = RequestMethod.GET)
     public String showAvailableVehicles(Model model) {
         List<Vehicle> vehicle = vehicleDataService.loadVehiclesThatCanBeSold();
@@ -39,13 +39,13 @@ public class VehicleDataController {
         return "vehicleDetails";
     }
 
-    @GetMapping("/nowy")
+    @GetMapping("/new")
     public String addVehicleForm(Model model){
         model.addAttribute("addedVehicle", new Vehicle());
         return "addVehicle";
     }
 
-    @GetMapping("/{vehicleId}/sprzedaz")
+    @GetMapping("/{vehicleId}/sell")
     public String sellVehicleForm(
             @PathVariable("vehicleId") Integer vehicleId, Model model) {
         model.addAttribute("vehicleId", vehicleId);

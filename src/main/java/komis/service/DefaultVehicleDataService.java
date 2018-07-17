@@ -18,7 +18,7 @@ public class DefaultVehicleDataService implements VehicleDataService {
 
     @Override
     public List<Vehicle> loadVehiclesThatCanBeSold() {
-        return (vehicleRepository.findNotSoldVehicle());
+        return vehicleRepository.findAllVehicleBySoldFalse();
     }
 
     @Override

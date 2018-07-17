@@ -1,0 +1,60 @@
+body{
+    background-color: #505050;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    margin: 0 !important;
+}
+.container{
+    width: 100%;
+}
+
+.header{
+    text-align: -moz-right;
+    width: 100%;
+    padding: 40px 0;
+}
+.menu{
+    width: 33%;
+}
+h3{
+    text-align: center;
+    padding: 30px;
+}
+
+th{
+    width: 20%;
+    text-align: center;
+}
+
+td{
+    width: 20%;
+    text-align: center;
+}
+#table{
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#content {
+    width: 100%;
+    text-align: justify;
+}
+tr.div{
+    float: left;
+}
+#row{
+
+}
+#nav {
+    width: 33%;
+    min-height: 620px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+li{
+    padding-bottom: 10px;
+}
