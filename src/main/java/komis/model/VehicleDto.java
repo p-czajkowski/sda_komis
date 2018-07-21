@@ -2,28 +2,28 @@ package komis.model;
 
 public class VehicleDto {
 
-    private VehicleType vehicleType;
+    private Integer vehicleType;
     private String vin;
     private Integer productionYear;
-    private Manufacturer manufacturer;
+    private Integer manufacturer;
     private CarModel model;
     private String insuranceNumber;
     private String carRegistration;
-    private Fuel fuel;
+    private Integer fuel;
     private Integer mileage;
     private String engine;
     private Integer power;
-    private Transmission transmission;
+    private Integer transmission;
     private String description;
     private Integer testDrives;
     private boolean sold;
     private Integer price;
 
-    public VehicleType getVehicleType() {
+    public Integer getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(Integer vehicleType) {
         this.vehicleType = vehicleType;
     }
 
@@ -43,11 +43,11 @@ public class VehicleDto {
         this.productionYear = productionYear;
     }
 
-    public Manufacturer getManufacturer() {
+    public Integer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(Manufacturer manufacturer) {
+    public void setManufacturer(Integer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
@@ -75,11 +75,11 @@ public class VehicleDto {
         this.carRegistration = carRegistration;
     }
 
-    public Fuel getFuel() {
+    public Integer getFuel() {
         return fuel;
     }
 
-    public void setFuel(Fuel fuel) {
+    public void setFuel(Integer fuel) {
         this.fuel = fuel;
     }
 
@@ -107,11 +107,11 @@ public class VehicleDto {
         this.power = power;
     }
 
-    public Transmission getTransmission() {
+    public Integer getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(Transmission transmission) {
+    public void setTransmission(Integer transmission) {
         this.transmission = transmission;
     }
 

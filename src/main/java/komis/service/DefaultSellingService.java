@@ -1,10 +1,11 @@
 package komis.service;
 
-import komis.model.Client;
 import komis.model.Purchase;
+import komis.model.User;
 import komis.model.Vehicle;
 import komis.repository.ClientRepository;
 import komis.repository.PurchaseRepository;
+import komis.repository.UserRepository;
 import komis.repository.VehicleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,20 +16,20 @@ import java.util.Date;
 public class DefaultSellingService implements SellingService {
 
     private final VehicleRepository vehicleRepository;
-    private final ClientRepository clientRepository;
+    private final UserRepository userRepository;
     private final PurchaseRepository purchaseRepository;
 
-    public DefaultSellingService(VehicleRepository vehicleRepository, ClientRepository clientRepository, PurchaseRepository purchaseRepository) {
+    public DefaultSellingService(VehicleRepository vehicleRepository, UserRepository userRepository, PurchaseRepository purchaseRepository) {
         this.vehicleRepository = vehicleRepository;
-        this.clientRepository = clientRepository;
+        this.userRepository = userRepository;
         this.purchaseRepository = purchaseRepository;
     }
 
     @Transactional
-    public Purchase sell(Vehicle vehicleId, final Client client, Date date, Integer price) {
+    public Purchase sell(Vehicle vehicleId, User user, Date date, Integer price) {
 
        return vehicleRepository.findNotSoldVehicle()
-                .map(vehicle -> performSell(vehicleId, client, date, price))
+                .map(vehicle -> performSell(vehicleId, user, date, price))
                 .orElseGet(null);
     }
 
@@ -37,15 +38,24 @@ public class DefaultSellingService implements SellingService {
         return purchaseRepository.findOne(id);
     }
 
+    @Override
+    public User loadPurchaseByUserId(Integer id) {
+        return userRepository.findOne(id);
+    }
 
-    public Purchase performSell(Vehicle vehicle, Client client, Date date, Integer price) {
+//    @Override
+//    public User loadPurchaseById(Integer id) {
+//        return userRepository.findOne(id);
+//    }
+
+    public Purchase performSell(Vehicle vehicle, User user, Date date, Integer price) {
         vehicle.setSold(true);
         vehicleRepository.save(vehicle);
-        Client persistedClient = clientRepository.findClientById(client.getId());
+        User persistedUser = userRepository.findUserById(user.getId());
 
         Purchase purchase = new Purchase();
         purchase.setVehicleId(vehicle);
-        purchase.setClientId(persistedClient);
+        purchase.setUserId(persistedUser);
         purchase.setDate(date);
         purchase.setPrice(price);
 

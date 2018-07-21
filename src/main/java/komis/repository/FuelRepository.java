@@ -1,4 +1,7 @@
 package komis.repository;
 
-public interface FuelRepository {
+import komis.model.Fuel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FuelRepository extends JpaRepository<Fuel, Integer> {
 }

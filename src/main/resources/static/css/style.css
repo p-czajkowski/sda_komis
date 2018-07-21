@@ -1,6 +1,5 @@
 body{
-    background-color: #505050;
-    color: white;
+    background-color: lightslategray;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     margin: 0 !important;
@@ -10,12 +9,21 @@ body{
 }
 
 .header{
-    text-align: -moz-right;
+    text-align: right;
+    font-style: initial;
+    font-size: large;
+    color: chartreuse;
     width: 100%;
-    padding: 40px 0;
+    padding: 10px 0;
+    border: 2px solid lightslategray;
+    border-radius: 10px;
 }
 .menu{
     width: 33%;
+}
+.h1{
+    float: right;
+    color: chartreuse;
 }
 h3{
     text-align: center;
@@ -33,14 +41,14 @@ td{
 }
 #table{
     padding: 10px;
-    border: 2px solid white;
-    border-radius: 10px;
 
 }
 
 #content {
     width: 100%;
     text-align: justify;
+    border: 2px solid lightslategray;
+    border-radius: 10px;
 }
 tr.div{
     float: left;
@@ -51,7 +59,7 @@ tr.div{
 #nav {
     width: 33%;
     min-height: 620px;
-    border: 2px solid white;
+    border: 2px solid lightslategray;
     border-radius: 10px;
 }
 

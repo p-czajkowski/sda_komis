@@ -8,5 +8,4 @@ public interface ManufacturerRepository extends CrudRepository<Manufacturer, Int
 
     Manufacturer getManufacturerByName(String manufacturerName);
     Manufacturer getManufacturerById(Integer manufacturerId);
-
 }

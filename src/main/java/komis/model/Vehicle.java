@@ -44,14 +44,6 @@ public class Vehicle extends BaseModel {
     @Column()
     private Integer price;
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
     public VehicleType getVehicleType() {
         return vehicleType;
     }
@@ -104,8 +96,8 @@ public class Vehicle extends BaseModel {
         return carRegistration;
     }
 
-    public void setCarRegistration(String plateNumber) {
-        this.carRegistration = plateNumber;
+    public void setCarRegistration(String carRegistration) {
+        this.carRegistration = carRegistration;
     }
 
     public Fuel getFuel() {
@@ -144,8 +136,8 @@ public class Vehicle extends BaseModel {
         return transmission;
     }
 
-    public void setTransmission(Transmission gearbox) {
-        this.transmission = gearbox;
+    public void setTransmission(Transmission transmission) {
+        this.transmission = transmission;
     }
 
     public String getDescription() {
@@ -170,5 +162,13 @@ public class Vehicle extends BaseModel {
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

@@ -12,15 +12,33 @@
 </head>
     <body>
         <h1>tutaj będzie formatka do sprzedaży samochodu</h1>
-        <ol>
-            <li>Id klienta</li>
-            <li>Id samochodu</li>
-            <li>data</li>
-            <li>cena</li>
-        </ol>
-
-        <!--&lt;!&ndash;<a href="vehicleList.html">Powrót na stronę główną</a>&ndash;&gt;-->
-        <!--<a th:href="@{/auto-komis-sda}" th:text="Powrót na stronę główną"></a>-->
-        <!--&lt;!&ndash;<a th:href="@{/auto-komis-sda/{vehicleId}(vehicleId=${vehicle.id})}" th:text="Powrót do szczegółów samochodu"/>&ndash;&gt;-->
+        <div>
+        <form th:object="${soldVehicle}" th:method="POST">
+            <table>
+                <tr>
+                    <td>ID samochodu</td>
+                    <td><input type="text" th:field="*{vehicleId}"/></td>
+                </tr>
+                <tr>
+                    <td>ID klienta</td>
+                    <td><input type="text" th:field="*{clientId}"/></td>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td><input type="text" th:field="*{date}"/></td>
+                </tr>
+                <tr>
+                    <td>Cena</td>
+                    <td><input type="text" th:field="*{price}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Sprzedaj"/>
+                    </td>
+                </tr>
+            </table>
+        <a th:href="@{/auto-komis-sda/{vehicleId}/sell(vehicleId=${vehicle.id})}" th:text="Wróć"></a>
+        </form>
+        </div>
     </body>
 </html>

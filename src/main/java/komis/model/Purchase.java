@@ -14,8 +14,8 @@ public class Purchase extends BaseModel {
     private Vehicle vehicleId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "clients_id")
-    private Client clientId;
+    @JoinColumn(name = "users_id")
+    private User userId;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -31,12 +31,12 @@ public class Purchase extends BaseModel {
         this.vehicleId = vehicleId;
     }
 
-    public Client getClientId() {
-        return clientId;
+    public User getUserId() {
+        return userId;
     }
 
-    public void setClientId(Client clientId) {
-        this.clientId = clientId;
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     public Date getDate() {

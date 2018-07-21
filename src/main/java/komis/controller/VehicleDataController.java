@@ -1,13 +1,11 @@
 package komis.controller;
 
-import komis.model.PurchaseFormData;
-import komis.model.Vehicle;
-import komis.model.VehicleDto;
+import komis.model.*;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
@@ -41,16 +39,19 @@ public class VehicleDataController {
 
     @GetMapping("/new")
     public String addVehicleForm(Model model){
-        model.addAttribute("addedVehicle", new Vehicle());
-        return "addVehicle";
-    }
 
-    @GetMapping("/{vehicleId}/sell")
-    public String sellVehicleForm(
-            @PathVariable("vehicleId") Integer vehicleId, Model model) {
-        model.addAttribute("vehicleId", vehicleId);
-        model.addAttribute("sellData", new PurchaseFormData());
-        return "sellVehicle";
+        model.addAttribute("addedVehicle", new VehicleDto());
+
+        List<Manufacturer> allManufacturers = vehicleDataService.getAllManufacturers();
+        model.addAttribute("allManufacturers", allManufacturers);
+        List<Transmission> allTransmissions = vehicleDataService.getAllTransmissions();
+        model.addAttribute("allTransmissions", allTransmissions);
+        List<Fuel> allFuels = vehicleDataService.getAllFuels();
+        model.addAttribute("allFuels", allFuels);
+        List<VehicleType> allVehicleTypes = vehicleDataService.getAllVehicleTypes();
+        model.addAttribute("allVehicleTypes", allVehicleTypes);
+
+        return "addVehicle";
     }
 
     @PostMapping
@@ -59,13 +60,14 @@ public class VehicleDataController {
 
         Vehicle vehicle = new Vehicle();
 
-        vehicle.setManufacturer(vehicleToBeSaved.getManufacturer());
+        vehicle.setManufacturer(vehicleDataService.getManufacturerById(vehicleToBeSaved.getManufacturer()));
         vehicle.setModel(vehicleToBeSaved.getModel());
         vehicle.setMileage(vehicleToBeSaved.getMileage());
-        vehicle.setFuel(vehicleToBeSaved.getFuel());
+        vehicle.setFuel(vehicleDataService.getFuelById(vehicleToBeSaved.getFuel()));
         vehicle.setEngine(vehicleToBeSaved.getEngine());
-//        vehicle.setTransmission(vehicleToBeSaved.getTransmission());
+        vehicle.setTransmission(vehicleDataService.getTransmissionById(vehicleToBeSaved.getTransmission()));
         vehicle.setProductionYear(vehicleToBeSaved.getProductionYear());
+        vehicle.setVehicleType(vehicleDataService.getVehicleTypeById(vehicleToBeSaved.getVehicleType()));
         vehicle.setCarRegistration(vehicleToBeSaved.getCarRegistration());
         vehicle.setInsuranceNumber(vehicleToBeSaved.getInsuranceNumber());
         vehicle.setPower(vehicleToBeSaved.getPower());
@@ -75,6 +77,14 @@ public class VehicleDataController {
 
         vehicleDataService.addVehicle(vehicle);
         return "redirect:/auto-komis-sda";
+    }
+
+    @GetMapping("/{vehicleId}/sell")
+    public String sellVehicleForm(
+            @PathVariable("vehicleId") Integer vehicleId, Model model) {
+        model.addAttribute("vehicleId", vehicleId);
+        model.addAttribute("soldVehicle", new PurchaseFormData());
+        return "sellVehicle";
     }
 
 }
