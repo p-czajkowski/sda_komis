@@ -1,7 +1,5 @@
 package komis.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,16 +10,31 @@ public class Purchase extends BaseModel {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicles_id")
     private Vehicle vehicleId;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id")
-    private User userId;
-
+    private Client clientId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-
-    @Column
     private Integer price;
+    private Integer PESEL;
+    private Integer NIP;
+
+
+    public Integer getPESEL() {
+        return PESEL;
+    }
+
+    public void setPESEL(Integer PESEL) {
+        this.PESEL = PESEL;
+    }
+
+    public Integer getNIP() {
+        return NIP;
+    }
+
+    public void setNIP(Integer NIP) {
+        this.NIP = NIP;
+    }
 
     public Vehicle getVehicleId() {
         return vehicleId;
@@ -31,12 +44,12 @@ public class Purchase extends BaseModel {
         this.vehicleId = vehicleId;
     }
 
-    public User getUserId() {
-        return userId;
+    public Client getClientId() {
+        return clientId;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setClientId(Client userId) {
+        this.clientId = userId;
     }
 
     public Date getDate() {

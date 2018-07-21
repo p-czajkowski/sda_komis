@@ -1,15 +1,43 @@
-package komis.model;
+package komis.model.Dto;
 
 import java.util.Date;
 
 public class PurchaseDto {
 
-        private Integer vehicleId;
-        private Integer clientId;
-        private Date date;
-        private Integer price;
-        private Integer PESEL;
-        private Integer NIP;
+
+    private Integer vehicleId;
+    private Integer clientId;
+    private Date date;
+    private Integer price;
+    private Integer PESEL;
+    private Integer NIP;
+    private String name;
+    private String lastName;
+    private String adress;
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Integer getVehicleId() {
         return vehicleId;

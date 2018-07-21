@@ -1,13 +1,11 @@
 package komis.repository;
 
-import komis.model.User;
+import komis.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
-public interface ClientRepository extends JpaRepository<User, Integer> {
+import java.util.Optional;
 
-//    @Query("SELECT c FROM Client c WHERE c.id = :clients_id")
-//    User findClientById(@Param("clients_id") Integer id);
+public interface ClientRepository extends JpaRepository<Client, Integer> {
 
+    Optional<Client> findByPesel(Integer pesel);
 }

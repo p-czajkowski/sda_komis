@@ -13,32 +13,143 @@
     <body>
         <h1>tutaj będzie formatka do sprzedaży samochodu</h1>
         <div>
-        <form th:object="${soldVehicle}" th:method="POST">
-            <table>
-                <tr>
-                    <td>ID samochodu</td>
-                    <td><input type="text" th:field="*{vehicleId}"/></td>
-                </tr>
-                <tr>
-                    <td>ID klienta</td>
-                    <td><input type="text" th:field="*{clientId}"/></td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td><input type="text" th:field="*{date}"/></td>
-                </tr>
-                <tr>
-                    <td>Cena</td>
-                    <td><input type="text" th:field="*{price}"/></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Sprzedaj"/>
-                    </td>
-                </tr>
-            </table>
-        <a th:href="@{/auto-komis-sda/{vehicleId}/sell(vehicleId=${vehicle.id})}" th:text="Wróć"></a>
-        </form>
+
+
+
+
+            <form th:action="@{/sells}" th:object="${soldVehicle}" th:method="POST">
+                <table>
+                    <tr>
+                        <td>Klient</td>
+                        <td><input type="text" th:field="*{clientId}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Samochód</td>
+                        <td>
+                            <input type="text" th:field="*{vehicleId}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cena</td>
+                        <td><input type="text" th:field="*{price}"/></td>
+                    </tr>
+
+                </table>
+            </form>
+
+                    <!--<tr>-->
+                        <!--<td>Rodzaj nadwozia</td>-->
+                        <!--<td>-->
+                            <!--&lt;!&ndash;<input type="text" th:field="*{fuel.fuelType}"/>&ndash;&gt;-->
+                            <!--<select th:field="*{vehicleType}" name="vehicleType" class="form-control">-->
+                                <!--<option value="">wybierz...</option>-->
+                                <!--<option th:each="vehicleType : ${allVehicleTypes}"-->
+                                        <!--th:value="${vehicleType.id}"-->
+                                        <!--th:text="${vehicleType.type}">vehicleType</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Przebieg</td>-->
+                        <!--<td><input type="text" th:field="*{mileage}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Silnik</td>-->
+                        <!--<td><input type="text" th:field="*{engine}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Moc (KM)</td>-->
+                        <!--<td><input type="text" th:field="*{power}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Skrzynia biegów</td>-->
+                        <!--<td>-->
+                            <!--<select th:field="*{transmission}" name="transmission" class="form-control">-->
+                                <!--<option value="">wybierz...</option>-->
+                                <!--<option th:each="transmission : ${allTransmissions}"-->
+                                        <!--th:value="${transmission.id}"-->
+                                        <!--th:text="${transmission.name}">name-->
+                                <!--</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Nr dowodu rej.</td>-->
+                        <!--<td><input type="text" th:field="*{carRegistration}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>VIN</td>-->
+                        <!--<td><input type="text" th:field="*{vin}"/></td>-->
+                    <!--</tr>-->
+                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>Typ</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td><input type="text" th:field="*{vehicleType.type}"/></td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--<tr>-->
+                        <!--<td>Nr OC</td>-->
+                        <!--<td><input type="text" th:field="*{insuranceNumber}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Opis</td>-->
+                        <!--<td><input type="text" th:field="*{description}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Ilość jazd próbnych</td>-->
+                        <!--<td><input type="text" th:field="*{testDrives}"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Cena</td>-->
+                        <!--<td><input type="text" th:field="*{price}"/></td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td colspan="2">-->
+                            <!--<input type="submit" value="Dodaj pojazd"/>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</form>-->
+
+
+
+
+
+
+
+            <!--<form th:object="${soldVehicle}" th:method="POST">-->
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<td>ID samochodu</td>-->
+                    <!--<td><input type="text" th:field="*{vehicleId}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>ID klienta</td>-->
+                    <!--<td><input type="text" th:field="*{clientId}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>Data</td>-->
+                    <!--<td><input type="text" th:field="*{date}"/></td>-->
+                <!--</tr>-->
+                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>Pesel</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td><input type="text" th:field="*{pesel}"/></td>&ndash;&gt;-->
+                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                <!--<tr>-->
+                    <!--<td>NIP</td>-->
+                    <!--<td><input type="text" th:field="*{nip}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>Cena</td>-->
+                    <!--<td><input type="text" th:field="*{price}"/></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td colspan="2">-->
+                        <!--<input type="submit" value="Sprzedaj"/>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        <!--<a th:href="@{/auto-komis-sda/{vehicleId}/sell(vehicleId=${vehicle.id})}" th:text="Wróć"></a>-->
+        <!--</form>-->
         </div>
     </body>
 </html>

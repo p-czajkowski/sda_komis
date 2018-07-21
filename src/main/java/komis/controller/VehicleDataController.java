@@ -19,14 +19,14 @@ public class VehicleDataController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping("/vehicleList")
     public String showAvailableVehicles(Model model) {
         List<Vehicle> vehicle = vehicleDataService.loadVehiclesThatCanBeSold();
         model.addAttribute("vehiclesList", vehicle);
         return "vehicleList";
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/details/{id}")
     public String getVehicle(
             @PathVariable("id")
                     Integer vehicleId, Model model){
@@ -78,13 +78,4 @@ public class VehicleDataController {
         vehicleDataService.addVehicle(vehicle);
         return "redirect:/auto-komis-sda";
     }
-
-    @GetMapping("/{vehicleId}/sell")
-    public String sellVehicleForm(
-            @PathVariable("vehicleId") Integer vehicleId, Model model) {
-        model.addAttribute("vehicleId", vehicleId);
-        model.addAttribute("soldVehicle", new PurchaseFormData());
-        return "sellVehicle";
-    }
-
 }

@@ -75,7 +75,7 @@
                         <td class="align-middle" th:text="${vehicle.productionYear}"></td>
                         <td class="align-middle" th:text="${vehicle.mileage}"></td>
                         <td class="align-middle" >
-                            <a th:href="@{/auto-komis-sda/{vehicleId} (vehicleId=${vehicle.id})}">
+                            <a th:href="@{/auto-komis-sda/details/{vehicleId} (vehicleId=${vehicle.id})}">
                             <button type="button" class="btn btn-primary btn-lg btn-block">
                                 Szczegóły
                             </button>
