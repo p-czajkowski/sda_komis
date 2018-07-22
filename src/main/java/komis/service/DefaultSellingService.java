@@ -39,7 +39,7 @@ public class DefaultSellingService implements SellingService {
         Purchase purchase = new Purchase();
 
         purchase.setClientId(persistedClient);
-        purchase.setVehicleId(soldVehicle);
+        purchase.setVehicle(soldVehicle);
         purchase.setPrice(price);
         purchase.setDate(new Date());
 

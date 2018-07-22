@@ -3,12 +3,15 @@ package komis.controller;
 import komis.model.Client;
 import komis.model.Purchase;
 import komis.model.Dto.PurchaseDto;
+import komis.model.Vehicle;
 import komis.service.SellingService;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/sells")
@@ -22,12 +25,16 @@ public class SellingDataController {
         this.vehicleDataService = vehicleDataService;
     }
 
-    @GetMapping("/{id}")
-    public String sellVehicleForm(
-            @PathVariable("id") Integer vehicleId, Model model) {
-        model.addAttribute("vehicleId", vehicleId);
-        model.addAttribute("soldVehicle", new Purchase());
-        return "sellVehicle";
+    @GetMapping("/{id}/sell")
+    public ModelAndView sellVehicleForm(
+            @PathVariable("id") Integer vehicleId, ModelMap model) {
+        Vehicle vehicleToBeSold = vehicleDataService.getById(vehicleId);
+        PurchaseDto purchaseDto = new PurchaseDto();
+        purchaseDto.setVehicle(vehicleToBeSold);
+        purchaseDto.setVehicleId(vehicleId);
+//        model.addAttribute("vehicleId", vehicleToBeSold);
+        model.addAttribute("soldVehicle", purchaseDto);
+        return new ModelAndView("sellVehicle",model);
     }
 
     @PostMapping("/sellVehicle")
@@ -39,7 +46,7 @@ public class SellingDataController {
             return "sellVehicle";
         }
 
-        Client client = sellingService.getClientById(purchaseDto.getClientId());
+        Client client = new Client();
         client.setName(purchaseDto.getName());
         client.setLastName(purchaseDto.getLastName());
         client.setAdress(purchaseDto.getAdress());
@@ -48,6 +55,6 @@ public class SellingDataController {
 
         sellingService.sellVehicle(purchaseDto.getVehicleId(), client, purchaseDto.getPrice());
 
-        return "redirect/auto-komis-sda";
+        return "redirect:/komis/list";
     }
 }

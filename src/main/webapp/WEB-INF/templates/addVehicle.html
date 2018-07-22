@@ -29,7 +29,7 @@
                 <h3 th:text="MENU"></h3>
                 <ul>
                     <li>
-                        <a th:href="@{/auto-komis-sda}">
+                        <a th:href="@{/komis}">
                             <button type="button" class="btn btn-outline-light btn-md btn-block">Strona główna</button>
                         </a>
                     </li>
@@ -62,7 +62,7 @@
             <div id="content">
                 <h1>Dodaj pojazd</h1>
 
-                <form th:action="@{/auto-komis-sda}" th:object="${addedVehicle}" th:method="POST">
+                <form th:action="@{/komis/new}" th:object="${addedVehicle}" th:method="POST">
                     <table>
                         <tr>
                             <td>Marka</td>

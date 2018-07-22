@@ -29,7 +29,7 @@
                 <h3 th:text="MENU"></h3>
                 <ul>
                     <li>
-                        <a th:href="@{/auto-komis-sda}">
+                        <a th:href="@{/komis}">
                         <button type="button" class="btn btn-outline-light btn-md btn-block">Strona główna</button>
                         </a>
                     </li>
@@ -75,7 +75,7 @@
                         <td class="align-middle" th:text="${vehicle.productionYear}"></td>
                         <td class="align-middle" th:text="${vehicle.mileage}"></td>
                         <td class="align-middle" >
-                            <a th:href="@{/auto-komis-sda/details/{vehicleId} (vehicleId=${vehicle.id})}">
+                            <a th:href="@{/komis/details/{vehicleId} (vehicleId=${vehicle.id})}">
                             <button type="button" class="btn btn-primary btn-lg btn-block">
                                 Szczegóły
                             </button>

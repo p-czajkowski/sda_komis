@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/auto-komis-sda")
+@RequestMapping("/komis")
 public class VehicleDataController {
 
    private final VehicleDataService vehicleDataService;
@@ -19,7 +19,7 @@ public class VehicleDataController {
     }
 
 
-    @GetMapping("/vehicleList")
+    @GetMapping("/list")
     public String showAvailableVehicles(Model model) {
         List<Vehicle> vehicle = vehicleDataService.loadVehiclesThatCanBeSold();
         model.addAttribute("vehiclesList", vehicle);
@@ -76,6 +76,6 @@ public class VehicleDataController {
         vehicle.setPrice(vehicleToBeSaved.getPrice());
 
         vehicleDataService.addVehicle(vehicle);
-        return "redirect:/auto-komis-sda";
+        return "redirect:/komis";
     }
 }

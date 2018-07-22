@@ -42,10 +42,8 @@
                 <td th:text="${vehicle.testDrives}"/></tr></tr>
         </table>
 
-        <a th:href="@{/auto-komis-sda/vehicleList}" th:text="Powrót"></a>
-        <a th:href="@{/sells/{vehicleId}/(vehicleId=${vehicle.id})}" th:text="Sprzedaż"></a>
-        <!--<a th:href="@{/auto-komis-sda/{vehicleId}/sell(vehicleId=${vehicle.id})}" th:text="Sprzedaż"></a>-->
-
+        <a th:href="@{/komis/list}" th:text="Powrót"></a>
+        <a th:href="@{'/sells/'+${vehicle.id}+'/sell/'}" th:text="Sprzedaż"></a>
 
     </body>
 </html>

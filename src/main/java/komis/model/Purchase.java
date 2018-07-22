@@ -9,7 +9,7 @@ public class Purchase extends BaseModel {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicles_id")
-    private Vehicle vehicleId;
+    private Vehicle vehicle;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id")
     private Client clientId;
@@ -36,12 +36,12 @@ public class Purchase extends BaseModel {
         this.NIP = NIP;
     }
 
-    public Vehicle getVehicleId() {
-        return vehicleId;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setVehicleId(Vehicle vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVehicle(Vehicle vehicleId) {
+        this.vehicle = vehicleId;
     }
 
     public Client getClientId() {
