@@ -11,8 +11,8 @@
     <title>Sprzedaż samochodu</title>
 </head>
     <body>
-        <!--<h1 th:text="'Sprzedajesz ' + ${soldVehicle.vehicle.manufacturer.name} + ' ' + ${soldVehicle.vehicle.model.name}">-->
-        <!--</h1>-->
+        <h1 th:text="'Sprzedajesz ' + ${soldVehicle.vehicle.manufacturer.name} + ' ' + ${soldVehicle.vehicle.model.name}">
+        </h1>
         <div>
             <form th:action="@{/sells/sellVehicle}" th:object="${soldVehicle}" th:method="POST">
                 <input type="hidden" th:field="*{vehicleId}"/>
@@ -20,7 +20,9 @@
 
                     <tr>
                         <td>Cena</td>
-                        <td><input class="form-control" type="text" th:field="*{price}"/></td>
+                        <td><input class="form-control" type="text" th:field="${soldVehicle.vehicle.sellPrice}"/></td>
+                        <!--${soldVehicle.vehicle.sellPrice}"/></td>-->
+
                     </tr>
                     <tr>
                         <td>Adres klienta: </td>

@@ -42,7 +42,16 @@ public class Vehicle extends BaseModel {
     @Column()
     private boolean sold;
     @Column()
-    private Integer price;
+    private Integer buyPrice;
+    private Integer sellPrice;
+
+    public Integer getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(Integer sellPrice) {
+        this.sellPrice = sellPrice;
+    }
 
     public VehicleType getVehicleType() {
         return vehicleType;
@@ -164,11 +173,11 @@ public class Vehicle extends BaseModel {
         this.sold = sold;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setBuyPrice(Integer price) {
+        this.buyPrice = price;
     }
 }

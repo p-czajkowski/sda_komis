@@ -35,11 +35,15 @@
             <tr><td>Silnik</td>
                 <td th:text="${vehicle.engine}"/></tr>
             <tr><td>Skrzynia biegów</td>
-                <td th:text="${vehicle.transmission.name}"/>
+                <td th:text="${vehicle.transmission.name}"/></tr>
             <tr><td>Opis</td>
                 <td th:text="${vehicle.description}"/></tr>
             <tr><td>Ilość jazd próbnych</td>
-                <td th:text="${vehicle.testDrives}"/></tr></tr>
+                <td th:text="${vehicle.testDrives}"/></tr>
+            <tr>
+                <td>Cena</td>
+                <td th:text="${vehicle.sellPrice}"/>
+            </tr>
         </table>
 
         <a th:href="@{/komis/list}" th:text="Powrót"></a>

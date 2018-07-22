@@ -10,7 +10,6 @@ import komis.repository.VehicleSoldRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.Optional;
 
 @Service
 public class DefaultSellingService implements SellingService {
@@ -42,7 +41,7 @@ public class DefaultSellingService implements SellingService {
 
         purchase.setClientId(persistedClient);
         purchase.setVehicle(soldVehicle);
-        purchase.setPrice(price);
+        purchase.setSellPrice(price);
         purchase.setDate(new Date());
         purchaseRepository.save(purchase);
 

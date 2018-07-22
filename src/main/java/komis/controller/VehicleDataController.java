@@ -1,11 +1,14 @@
 package komis.controller;
 
 import komis.model.*;
+import komis.model.Dto.VehicleDto;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -54,9 +57,14 @@ public class VehicleDataController {
         return "addVehicle";
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public String saveVehicle(
-            @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved){
+            @Valid @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
+
+            return "redirect:/komis/new";
+        }
 
         Vehicle vehicle = new Vehicle();
 
@@ -73,7 +81,8 @@ public class VehicleDataController {
         vehicle.setPower(vehicleToBeSaved.getPower());
         vehicle.setDescription(vehicleToBeSaved.getDescription());
         vehicle.setTestDrives(vehicleToBeSaved.getTestDrives());
-        vehicle.setPrice(vehicleToBeSaved.getPrice());
+        vehicle.setBuyPrice(vehicleToBeSaved.getBuyPrice());
+        vehicle.setSellPrice(vehicleToBeSaved.getSellPrice());
 
         vehicleDataService.addVehicle(vehicle);
         return "redirect:/komis/list";

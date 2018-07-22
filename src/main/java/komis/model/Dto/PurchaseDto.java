@@ -1,22 +1,26 @@
 package komis.model.Dto;
 
-import groovy.transform.builder.Builder;
 import komis.model.Vehicle;
 
 import java.util.Date;
 
-@Builder
+
 public class PurchaseDto {
 
     private Integer vehicleId;
     private Vehicle vehicle;
     private Integer clientId;
     private Date date;
-    private Integer price;
+
+    private Integer sellPrice;
+
     private Integer pesel;
     private Integer nip;
+
     private String name;
+
     private String lastName;
+
     private String adress;
 
     public Vehicle getVehicle() {
@@ -75,12 +79,12 @@ public class PurchaseDto {
         this.date = date;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getSellPrice() {
+        return sellPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setSellPrice(Integer sellPrice) {
+        this.sellPrice = sellPrice;
     }
 
     public Integer getPesel() {

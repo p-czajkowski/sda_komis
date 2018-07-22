@@ -60,9 +60,8 @@
             </div>
 
             <div id="content">
-                <h1>Dodaj pojazd</h1>
 
-                <form th:action="@{/komis}" th:object="${addedVehicle}" th:method="POST">
+                <form th:action="@{/komis/new}" th:object="${addedVehicle}" th:method="POST">
                     <table>
                         <tr>
                             <td>Marka</td>
@@ -155,10 +154,14 @@
                             <td><input type="text" th:field="*{testDrives}"/></td>
                         </tr>
                         <tr>
-                            <td>Cena</td>
-                            <td><input type="text" th:field="*{price}"/></td>
+                            <td>Cena odkupu</td>
+                            <td><input type="text" th:field="*{buyPrice}"/></td>
                         </tr>
-
+                        <tr>
+                            <td>Cena sprzedaży</td>
+                            <td><input type="text" th:field="*{sellPrice}"/>
+                                <span th:if="${#fields.hasErrors('sellPrice')}" th:errors="*{sellPrice}"/></td>
+                        </tr>
                         <tr>
                             <td colspan="2">
                                 <input type="submit" value="Dodaj pojazd"/>

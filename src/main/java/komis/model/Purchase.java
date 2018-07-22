@@ -15,7 +15,7 @@ public class Purchase extends BaseModel {
     private Client clientId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    private Integer price;
+    private Integer sellPrice;
     private Integer PESEL;
     private Integer NIP;
 
@@ -60,11 +60,11 @@ public class Purchase extends BaseModel {
         this.date = date;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getSellPrice() {
+        return sellPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setSellPrice(Integer price) {
+        this.sellPrice = price;
     }
 }

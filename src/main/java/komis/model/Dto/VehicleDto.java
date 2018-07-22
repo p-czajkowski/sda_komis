@@ -1,4 +1,9 @@
-package komis.model;
+package komis.model.Dto;
+
+import komis.model.CarModel;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 
 public class VehicleDto {
 
@@ -17,7 +22,19 @@ public class VehicleDto {
     private String description;
     private Integer testDrives;
     private boolean sold;
-    private Integer price;
+    private Integer buyPrice;
+    @NotNull
+    @DecimalMin(value = "5000", message = "Minimalna kwota to 5000zł")
+    private Integer sellPrice;
+
+
+    public Integer getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(Integer sellPrice) {
+        this.sellPrice = sellPrice;
+    }
 
     public Integer getVehicleType() {
         return vehicleType;
@@ -139,11 +156,11 @@ public class VehicleDto {
         this.sold = sold;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setBuyPrice(Integer buyPrice) {
+        this.buyPrice = buyPrice;
     }
 }

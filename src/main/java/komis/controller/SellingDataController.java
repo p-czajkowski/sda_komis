@@ -51,7 +51,7 @@ public class SellingDataController {
         client.setPesel(purchaseDto.getPesel());
         client.setNip(purchaseDto.getNip());
 
-        sellingService.sellVehicle(purchaseDto.getVehicleId(), client, purchaseDto.getPrice());
+        sellingService.sellVehicle(purchaseDto.getVehicleId(), client, purchaseDto.getSellPrice());
 
         return "redirect:/komis/list";
     }
