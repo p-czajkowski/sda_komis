@@ -10,6 +10,7 @@ import komis.repository.VehicleSoldRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class DefaultSellingService implements SellingService {
@@ -28,13 +29,14 @@ public class DefaultSellingService implements SellingService {
 
 
     @Override
-    public Purchase sellVehicle(Integer soldVehicleId, Client clientId, Integer price) {
+    public Purchase sellVehicle(Integer soldVehicleId, Client client, Integer price) {
         Vehicle soldVehicle = vehicleRepository.findOne(soldVehicleId);
         soldVehicle.setSold(true);
-        vehicleSoldRepository.findBySold(true);
+        vehicleSoldRepository.save(soldVehicle);
+
 
         Client persistedClient = clientRepository.findByPesel(
-                clientId.getPesel()).orElseGet(() -> clientRepository.save(clientId));
+                client.getPesel()).orElseGet(() -> clientRepository.save(client));
 
         Purchase purchase = new Purchase();
 
@@ -42,12 +44,14 @@ public class DefaultSellingService implements SellingService {
         purchase.setVehicle(soldVehicle);
         purchase.setPrice(price);
         purchase.setDate(new Date());
+        purchaseRepository.save(purchase);
 
         return purchase;
     }
 
     @Override
     public Client getClientById(Integer pesel) {
+
         return clientRepository.findOne(pesel);
     }
 }

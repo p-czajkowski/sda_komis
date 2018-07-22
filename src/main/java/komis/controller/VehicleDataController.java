@@ -76,6 +76,6 @@ public class VehicleDataController {
         vehicle.setPrice(vehicleToBeSaved.getPrice());
 
         vehicleDataService.addVehicle(vehicle);
-        return "redirect:/komis";
+        return "redirect:/komis/list";
     }
 }

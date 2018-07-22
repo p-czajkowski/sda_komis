@@ -1,13 +1,11 @@
 package komis.controller;
 
 import komis.model.Client;
-import komis.model.Purchase;
 import komis.model.Dto.PurchaseDto;
 import komis.model.Vehicle;
 import komis.service.SellingService;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -50,8 +48,8 @@ public class SellingDataController {
         client.setName(purchaseDto.getName());
         client.setLastName(purchaseDto.getLastName());
         client.setAdress(purchaseDto.getAdress());
-        client.setPesel(purchaseDto.getPESEL());
-        client.setNip(purchaseDto.getNIP());
+        client.setPesel(purchaseDto.getPesel());
+        client.setNip(purchaseDto.getNip());
 
         sellingService.sellVehicle(purchaseDto.getVehicleId(), client, purchaseDto.getPrice());
 

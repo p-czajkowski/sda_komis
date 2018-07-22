@@ -13,8 +13,8 @@ public class PurchaseDto {
     private Integer clientId;
     private Date date;
     private Integer price;
-    private Integer PESEL;
-    private Integer NIP;
+    private Integer pesel;
+    private Integer nip;
     private String name;
     private String lastName;
     private String adress;
@@ -83,19 +83,19 @@ public class PurchaseDto {
         this.price = price;
     }
 
-    public Integer getPESEL() {
-        return PESEL;
+    public Integer getPesel() {
+        return pesel;
     }
 
-    public void setPESEL(Integer PESEL) {
-        this.PESEL = PESEL;
+    public void setPesel(Integer pesel) {
+        this.pesel = pesel;
     }
 
-    public Integer getNIP() {
-        return NIP;
+    public Integer getNip() {
+        return nip;
     }
 
-    public void setNIP(Integer NIP) {
-        this.NIP = NIP;
+    public void setNip(Integer nip) {
+        this.nip = nip;
     }
 }
