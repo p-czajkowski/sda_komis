@@ -16,13 +16,24 @@
 <body>
 
     <div class="container">
-        <header>
 
-        </header>
+        <form th:action="@{/login}">
+            <ul>
+                <li>
+                    Login
+                </li>
+                <li>
+                    haslo
+                </li>
+                <li>
+                    <a th:href="@{/komis/list}">
+                        <input type="submit" class="btn btn-primary btn-md btn-block" th:value="Zaloguj"/>
+                    </a>
+                </li>
+            </ul>
 
-        <div>
+        </form>
 
-        </div>
     </div>
 </body>
 </html>
