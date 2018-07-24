@@ -9,47 +9,45 @@ public class Purchase extends BaseModel {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicles_id")
-    private Vehicle vehicle;
+    private Vehicle vehicleId;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
-    private Client clientId;
+    @JoinColumn(name = "client_id")
+    private Person personId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+
     private Integer sellPrice;
-    private Integer PESEL;
-    private Integer NIP;
 
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "name")
+//    private Person name;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "lastName")
+//    private Person lastName;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "adress")
+//    private Person adress;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "pesel")
+//    private Person pesel;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "nip")
+//    private Person nip;
 
-    public Integer getPESEL() {
-        return PESEL;
+    public Vehicle getVehicleId() {
+        return vehicleId;
     }
 
-    public void setPESEL(Integer PESEL) {
-        this.PESEL = PESEL;
+    public void setVehicleId(Vehicle vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
-    public Integer getNIP() {
-        return NIP;
+    public Person getPersonId() {
+        return personId;
     }
 
-    public void setNIP(Integer NIP) {
-        this.NIP = NIP;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicleId) {
-        this.vehicle = vehicleId;
-    }
-
-    public Client getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Client userId) {
-        this.clientId = userId;
+    public void setPersonId(Person personId) {
+        this.personId = personId;
     }
 
     public Date getDate() {
@@ -64,7 +62,47 @@ public class Purchase extends BaseModel {
         return sellPrice;
     }
 
-    public void setSellPrice(Integer price) {
-        this.sellPrice = price;
+    public void setSellPrice(Integer sellPrice) {
+        this.sellPrice = sellPrice;
     }
+
+//    public Person getName() {
+//        return name;
+//    }
+//
+//    public void setName(Person name) {
+//        this.name = name;
+//    }
+//
+//    public Person getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(Person lastName) {
+//        this.lastName = lastName;
+//    }
+//
+//    public Person getAdress() {
+//        return adress;
+//    }
+//
+//    public void setAdress(Person adress) {
+//        this.adress = adress;
+//    }
+//
+//    public Person getPesel() {
+//        return pesel;
+//    }
+//
+//    public void setPesel(Person pesel) {
+//        this.pesel = pesel;
+//    }
+//
+//    public Person getNip() {
+//        return nip;
+//    }
+//
+//    public void setNip(Person nip) {
+//        this.nip = nip;
+//    }
 }

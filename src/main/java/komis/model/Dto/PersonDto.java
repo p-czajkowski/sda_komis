@@ -1,27 +1,23 @@
-package komis.model;
+package komis.model.Dto;
 
-import javax.persistence.*;
+import komis.model.User;
+import org.hibernate.validator.constraints.Length;
 
-@Entity
-@Table
-public class Client extends BaseModel{
+import javax.validation.constraints.NotNull;
 
-    @JoinColumn(name = "userId")
-    @OneToOne
-    private User userId;
+public class PersonDto {
+    @NotNull(message = "Imię jest wymagane")
+    @Length(min = 3, message = "Imię musi mieć przynajmniej trzy znaki")
     private String name;
+    @NotNull(message = "Nazwisko jest wymagane")
+    @Length(min = 3, message = "Nazwisko musi mieć co najmniej 3 znaki")
     private String lastName;
+    @NotNull(message = "adres jest wymagany")
+    @Length(min = 5, message = "Adres musi mieć przynajmniej 5 znaków")
     private String adress;
     private Integer pesel;
     private Integer nip;
-
-    public User getUserid() {
-        return userId;
-    }
-
-    public void setUserid(User userId) {
-        this.userId = userId;
-    }
+    private User userId;
 
     public String getName() {
         return name;
@@ -61,5 +57,13 @@ public class Client extends BaseModel{
 
     public void setNip(Integer nip) {
         this.nip = nip;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 }

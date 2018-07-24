@@ -7,21 +7,20 @@ import java.util.Date;
 
 public class PurchaseDto {
 
-    private Integer vehicleId;
     private Vehicle vehicle;
-    private Integer clientId;
+    private Integer vehicleId;
+    private Integer personId;
     private Date date;
-
     private Integer sellPrice;
 
+    // dane person
+
+    private String name;
+    private String lastName;
+    private String adress;
     private Integer pesel;
     private Integer nip;
 
-    private String name;
-
-    private String lastName;
-
-    private String adress;
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -31,12 +30,36 @@ public class PurchaseDto {
         this.vehicle = vehicle;
     }
 
-    public String getAdress() {
-        return adress;
+    public Integer getVehicleId() {
+        return vehicleId;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setVehicleId(Integer vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public Integer getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Integer getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(Integer sellPrice) {
+        this.sellPrice = sellPrice;
     }
 
     public String getName() {
@@ -55,36 +78,12 @@ public class PurchaseDto {
         this.lastName = lastName;
     }
 
-    public Integer getVehicleId() {
-        return vehicleId;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setVehicleId(Integer vehicleId) {
-        this.vehicleId = vehicleId;
-    }
-
-    public Integer getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Integer getSellPrice() {
-        return sellPrice;
-    }
-
-    public void setSellPrice(Integer sellPrice) {
-        this.sellPrice = sellPrice;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
     public Integer getPesel() {

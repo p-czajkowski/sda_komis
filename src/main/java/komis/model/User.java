@@ -1,7 +1,10 @@
 package komis.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -10,37 +13,16 @@ public class User extends BaseModel{
     @Column(unique = true)
     private String login;
     private String password;
-    @Transient
-    private String confirmPassword;
 
-    private Integer pesel;
-    private String agress;
+    private String email;
 
-    private Date employeDate;
+    @JoinColumn(name = "personId")
+    @OneToOne
+    private Person personId;
 
-    public Integer getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(Integer pesel) {
-        this.pesel = pesel;
-    }
-
-    public String getAgress() {
-        return agress;
-    }
-
-    public void setAgress(String agress) {
-        this.agress = agress;
-    }
-
-    public Date getEmployeDate() {
-        return employeDate;
-    }
-
-    public void setEmployeDate(Date employeDate) {
-        this.employeDate = employeDate;
-    }
+    @ManyToMany
+    @JoinColumn(name = "user_roles")
+    private Set<Role> role;
 
     public String getLogin() {
         return login;
@@ -58,11 +40,27 @@ public class User extends BaseModel{
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public String getEmail() {
+        return email;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Person getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Person personId) {
+        this.personId = personId;
+    }
+
+    public Set<Role> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 }

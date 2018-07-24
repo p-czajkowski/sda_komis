@@ -2,6 +2,7 @@ package komis.service;
 
 import komis.model.*;
 import komis.repository.*;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,16 +16,18 @@ public class DefaultVehicleDataService implements VehicleDataService {
     private final ManufacturerRepository manufacturerRepository;
     private final FuelRepository fuelRepository;
     private final VehicleTypeRepository vehicleTypeRepository;
+    private final ModelRepository modelRepository;
 
     public DefaultVehicleDataService(
             VehicleRepository vehicleRepository, TransmissionRepository transmissionRepository,
             ManufacturerRepository manufacturerRepository, FuelRepository fuelRepository,
-            VehicleTypeRepository vehicleTypeRepository) {
+            VehicleTypeRepository vehicleTypeRepository, ModelRepository modelRepository) {
         this.vehicleRepository = vehicleRepository;
         this.transmissionRepository = transmissionRepository;
         this.manufacturerRepository = manufacturerRepository;
         this.fuelRepository = fuelRepository;
         this.vehicleTypeRepository = vehicleTypeRepository;
+        this.modelRepository = modelRepository;
     }
 
     @Override

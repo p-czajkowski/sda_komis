@@ -1,9 +1,9 @@
 package komis.service;
 
-import komis.model.Client;
+import komis.model.Person;
 import komis.model.Purchase;
 import komis.model.Vehicle;
-import komis.repository.ClientRepository;
+import komis.repository.PersonRepository;
 import komis.repository.PurchaseRepository;
 import komis.repository.VehicleRepository;
 import komis.repository.VehicleSoldRepository;
@@ -15,32 +15,33 @@ import java.util.Date;
 public class DefaultSellingService implements SellingService {
 
     private final VehicleRepository vehicleRepository;
-    private final ClientRepository clientRepository;
+    private final PersonRepository personRepository;
     private final PurchaseRepository purchaseRepository;
     private final VehicleSoldRepository vehicleSoldRepository;
 
-    public DefaultSellingService(VehicleRepository vehicleRepository, ClientRepository clientRepository, PurchaseRepository purchaseRepository, VehicleSoldRepository vehicleSoldRepository) {
+
+    public DefaultSellingService(VehicleRepository vehicleRepository, PersonRepository personRepository, PurchaseRepository purchaseRepository, VehicleSoldRepository vehicleSoldRepository) {
         this.vehicleRepository = vehicleRepository;
-        this.clientRepository = clientRepository;
+        this.personRepository = personRepository;
         this.purchaseRepository = purchaseRepository;
         this.vehicleSoldRepository = vehicleSoldRepository;
     }
 
 
     @Override
-    public Purchase sellVehicle(Integer soldVehicleId, Client client, Integer price) {
+    public Purchase sellVehicle(Integer soldVehicleId, Person person, Integer price) {
         Vehicle soldVehicle = vehicleRepository.findOne(soldVehicleId);
         soldVehicle.setSold(true);
         vehicleSoldRepository.save(soldVehicle);
 
 
-        Client persistedClient = clientRepository.findByPesel(
-                client.getPesel()).orElseGet(() -> clientRepository.save(client));
+        Person persistedPerson = personRepository.findByPesel(
+                person.getPesel()).orElseGet(() -> personRepository.save(person));
 
         Purchase purchase = new Purchase();
 
-        purchase.setClientId(persistedClient);
-        purchase.setVehicle(soldVehicle);
+        purchase.setPersonId(persistedPerson);
+        purchase.setVehicleId(soldVehicle);
         purchase.setSellPrice(price);
         purchase.setDate(new Date());
         purchaseRepository.save(purchase);
@@ -48,9 +49,19 @@ public class DefaultSellingService implements SellingService {
         return purchase;
     }
 
-    @Override
-    public Client getClientById(Integer pesel) {
 
-        return clientRepository.findOne(pesel);
+    @Override
+    public Person getById(Integer personId) {
+
+        return personRepository.findOne(personId);
     }
+
+    @Override
+    public Person getPersonByPesel(Integer pesel) {
+        return personRepository.findOne(pesel);
+    }
+
+
+
+
 }

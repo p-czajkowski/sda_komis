@@ -22,4 +22,5 @@ public interface VehicleDataService {
     VehicleType getVehicleTypeById(Integer id);
     List<VehicleType> getAllVehicleTypes();
 
+
 }

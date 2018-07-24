@@ -1,6 +1,6 @@
 package komis.model.Dto;
 
-import komis.model.CarModel;
+import komis.model.Model;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -8,10 +8,11 @@ import javax.validation.constraints.NotNull;
 public class VehicleDto {
 
     private Integer vehicleType;
+    @NotNull
     private String vin;
     private Integer productionYear;
     private Integer manufacturer;
-    private CarModel model;
+    private Model model;
     private String insuranceNumber;
     private String carRegistration;
     private Integer fuel;
@@ -68,11 +69,11 @@ public class VehicleDto {
         this.manufacturer = manufacturer;
     }
 
-    public CarModel getModel() {
+    public Model getModel() {
         return model;
     }
 
-    public void setModel(CarModel model) {
+    public void setModel(Model model) {
         this.model = model;
     }
 

@@ -1,12 +1,16 @@
 package komis.service;
 
-import komis.model.Client;
+import komis.model.Person;
 import komis.model.Purchase;
+import komis.model.Vehicle;
 
 public interface SellingService {
 
-    Purchase sellVehicle(Integer vehicleId, Client clientId, Integer price);
+    Purchase sellVehicle(Integer vehicleId, Person personId, Integer price);
 
-    Client getClientById(Integer clientId);
+    Person getById(Integer personId);
+    Person getPersonByPesel(Integer pesel);
+//    Vehicle getBySellPrice(Integer sellPrice);
+
 }
 

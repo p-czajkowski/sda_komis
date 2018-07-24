@@ -9,7 +9,7 @@ public class Vehicle extends BaseModel {
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "vehicleTypeId")
     private VehicleType vehicleType;
-    @Column(name = "VIN")
+    @Column(name = "VIN", unique = true)
     private String vin;
     @Column(name = "prod_year")
     private Integer productionYear;
@@ -18,7 +18,7 @@ public class Vehicle extends BaseModel {
     private Manufacturer manufacturer;
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "carModelId")
-    private CarModel model;
+    private Model model;
     @Column(name = "insuranceNo")
     private String insuranceNumber;
     @Column(name = "carRegistration")
@@ -85,11 +85,11 @@ public class Vehicle extends BaseModel {
         this.manufacturer = manufacturer;
     }
 
-    public CarModel getModel() {
+    public Model getModel() {
         return model;
     }
 
-    public void setModel(CarModel model) {
+    public void setModel(Model model) {
         this.model = model;
     }
 

@@ -2,6 +2,7 @@ package komis.controller;
 
 import komis.model.*;
 import komis.model.Dto.VehicleDto;
+import komis.repository.ModelRepository;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,11 @@ import java.util.List;
 public class VehicleDataController {
 
    private final VehicleDataService vehicleDataService;
+   private final ModelRepository modelRepository;
 
-    public VehicleDataController(VehicleDataService vehicleDataService) {
+    public VehicleDataController(VehicleDataService vehicleDataService, ModelRepository modelRepository) {
         this.vehicleDataService = vehicleDataService;
+        this.modelRepository = modelRepository;
     }
 
 
@@ -47,6 +50,7 @@ public class VehicleDataController {
 
         List<Manufacturer> allManufacturers = vehicleDataService.getAllManufacturers();
         model.addAttribute("allManufacturers", allManufacturers);
+
         List<Transmission> allTransmissions = vehicleDataService.getAllTransmissions();
         model.addAttribute("allTransmissions", allTransmissions);
         List<Fuel> allFuels = vehicleDataService.getAllFuels();
@@ -59,7 +63,8 @@ public class VehicleDataController {
 
     @PostMapping("/new")
     public String saveVehicle(
-            @Valid @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved, BindingResult bindingResult, Model model){
+            @Valid @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved,
+            BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
 
@@ -81,6 +86,7 @@ public class VehicleDataController {
         vehicle.setPower(vehicleToBeSaved.getPower());
         vehicle.setDescription(vehicleToBeSaved.getDescription());
         vehicle.setTestDrives(vehicleToBeSaved.getTestDrives());
+        vehicle.setVin(vehicleToBeSaved.getVin());
         vehicle.setBuyPrice(vehicleToBeSaved.getBuyPrice());
         vehicle.setSellPrice(vehicleToBeSaved.getSellPrice());
 

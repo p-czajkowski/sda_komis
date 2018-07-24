@@ -130,12 +130,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Nr dowodu rej.</td>
+                            <td>Nr rejestracji</td>
                             <td><input type="text" th:field="*{carRegistration}"/></td>
                         </tr>
                         <tr>
                             <td>VIN</td>
-                            <td><input type="text" th:field="*{vin}"/></td>
+                            <td><input type="text" th:field="*{vin}"/>
+                                <span th:if="${#fields.hasErrors('vin')}" th:errors="*{vin}"/> </td>
                         </tr>
                         <!--<tr>-->
                             <!--<td>Typ</td>-->
