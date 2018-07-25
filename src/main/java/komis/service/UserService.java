@@ -3,9 +3,8 @@ package komis.service;
 import komis.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserDataService {
+public interface UserService {
 
-    void save(User user);
+    User addUser(User user);
 
-    String findUserByLogin(String login);
 }

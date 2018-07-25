@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Rejestracja użytkownika</title>
+
+
+</head>
+<body>
+
+<div><h1>Create account</h1></div>
+<div>
+    <form data-th-action="@{/createAccount}" data-th-object="${createUser}" data-th-method="POST">
+        <div>
+            <div>Twój login:</div>
+            <div><input class="form-control" type="text"
+                        data-th-field="*{login}"/></div>
+            <div>Hasło:</div>
+            <div><input class="form-control" type="text"
+                        data-th-field="*{password}"/></div>
+            <div>e-mail:</div>
+            <div><input class="form-control" type="text"
+                        data-th-field="*{email}"/></div>
+            <div><input type="submit" class="btn btn-primary btn-lg btn-block"
+                        value="Zarejestruj"/></div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

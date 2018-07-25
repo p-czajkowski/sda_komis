@@ -1,8 +1,7 @@
 package komis.controller;
 
-import komis.model.*;
 import komis.model.Dto.VehicleDto;
-import komis.repository.ModelRepository;
+import komis.model.*;
 import komis.service.VehicleDataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +15,11 @@ import java.util.List;
 @RequestMapping("/komis")
 public class VehicleDataController {
 
-   private final VehicleDataService vehicleDataService;
-   private final ModelRepository modelRepository;
+    private final VehicleDataService vehicleDataService;
 
-    public VehicleDataController(VehicleDataService vehicleDataService, ModelRepository modelRepository) {
+    public VehicleDataController(VehicleDataService vehicleDataService) {
         this.vehicleDataService = vehicleDataService;
-        this.modelRepository = modelRepository;
     }
-
 
     @GetMapping("/list")
     public String showAvailableVehicles(Model model) {
@@ -35,7 +31,7 @@ public class VehicleDataController {
     @GetMapping("/details/{id}")
     public String getVehicle(
             @PathVariable("id")
-                    Integer vehicleId, Model model){
+                    Integer vehicleId, Model model) {
         Vehicle vehicle = vehicleDataService.getById(vehicleId);
         if (vehicleId != null) {
             model.addAttribute("vehicle", vehicle);
@@ -44,13 +40,12 @@ public class VehicleDataController {
     }
 
     @GetMapping("/new")
-    public String addVehicleForm(Model model){
+    public String addVehicleForm(Model model) {
 
         model.addAttribute("addedVehicle", new VehicleDto());
 
         List<Manufacturer> allManufacturers = vehicleDataService.getAllManufacturers();
         model.addAttribute("allManufacturers", allManufacturers);
-
         List<Transmission> allTransmissions = vehicleDataService.getAllTransmissions();
         model.addAttribute("allTransmissions", allTransmissions);
         List<Fuel> allFuels = vehicleDataService.getAllFuels();
@@ -64,9 +59,9 @@ public class VehicleDataController {
     @PostMapping("/new")
     public String saveVehicle(
             @Valid @ModelAttribute("addedVehicle") VehicleDto vehicleToBeSaved,
-            BindingResult bindingResult){
+            BindingResult bindingResult) {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
 
             return "redirect:/komis/new";
         }
