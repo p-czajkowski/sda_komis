@@ -1,0 +1,33 @@
+<div data-th-fragment="vehicleList">
+    <div>tutaj wyświelę navbar
+    </div>
+
+
+    <div id="content">
+        <table id="table">
+            <tr>
+                <th></th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Rocznik</th>
+                <th>Przebieg</th>
+                <th></th>
+            </tr>
+            <tr data-th-each="vehicle : ${vehiclesList}">
+                <td><img width="120" height="90" data-th-src="@{/img/cupra.png}" alt="zdjęcie samochodu"
+                         class="rounded float-right"/></td>
+                <td class="align-middle" data-th-text="${vehicle.manufacturer.name}"></td>
+                <td class="align-middle" data-th-text="${vehicle.model.name}"></td>
+                <td class="align-middle" data-th-text="${vehicle.productionYear}"></td>
+                <td class="align-middle" data-th-text="${vehicle.mileage}"></td>
+                <td class="align-middle">
+                    <a data-th-href="@{/komis/details/{vehicleId} (vehicleId=${vehicle.id})}">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">
+                            Szczegóły
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

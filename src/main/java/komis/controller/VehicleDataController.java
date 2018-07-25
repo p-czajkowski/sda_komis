@@ -25,7 +25,7 @@ public class VehicleDataController {
     public String showAvailableVehicles(Model model) {
         List<Vehicle> vehicle = vehicleDataService.loadVehiclesThatCanBeSold();
         model.addAttribute("vehiclesList", vehicle);
-        return "vehicleList";
+        return "pages/vehicleList";
     }
 
     @GetMapping("/details/{id}")
@@ -36,7 +36,7 @@ public class VehicleDataController {
         if (vehicleId != null) {
             model.addAttribute("vehicle", vehicle);
         }
-        return "vehicleDetails";
+        return "pages/vehicleDetails";
     }
 
     @GetMapping("/new")

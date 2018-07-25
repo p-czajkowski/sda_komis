@@ -1,0 +1,32 @@
+<div data-th-fragment="navigation">
+    <div class="containter">
+        <div>
+            <h4 data-th-text="Menu"></h4>
+
+            <input type="submit" class="btn btn-primary btn-md btn-block" data-th-href="@{/komis/list}"
+            value="Strona główna"/>
+            <input type="submit" class="btn btn-primary btn-md btn-block" data-th-href="@{/komis/list}"
+            value="Przeglądaj samochody"/>
+
+            <input type="submit" class="btn btn-primary btn-md btn-block" value="Kontakt"/>
+
+        </div>
+        <div>
+            <h4>Panel klienta</h4>
+            <button height="80" type="button" class="btn btn-primary btn-lg btn-block">
+                Umów się na spotkanie <br></br>
+                z przedstawicielem <br></br>handlowym
+            </button>
+        </div>
+        <div>
+            <h4>Panel pracownika</h4>
+            <a data-th-href="@{/komis/new}">
+                <button height="80" type="button" class="btn btn-primary btn-lg btn-block">
+                    Dodaj samochód
+                </button>
+            </a>
+
+        </div>
+    </div>
+
+</div>

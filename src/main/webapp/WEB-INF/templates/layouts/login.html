@@ -1,0 +1,33 @@
+<div data-th-fragment="login" class="row no-gutters">
+    <div class="container" style="min-height: 450px">
+        <div class="row justify-align-center content">
+            <div class="col-lg-12">
+                <form style="margin: auto">
+                    <ul>
+                        <li>
+                            <h1>Logowanie</h1>
+                        </li>
+                        <li>
+                            <input class="login" type="text" placeholder="login" onfocus="this.placeholder=''"
+                                   onblur="this.placeholder='login'"/>
+                        </li>
+                        <li>
+                            <input class="login" type="password" placeholder="hasło" onfocus="this.placeholder=''"
+                                   onblur="this.placeholder='hasło'"/>
+                        </li>
+                        <li>
+                            <a data-th-href="@{/komis/list}">
+                                <input type="button" class="btn btn-success login" value="Zaloguj"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-th-href="@{/createAccount}">
+                                <input type="button" class="btn btn-primary" style="width: auto; margin: 10px 0;"
+                                       value="Zarejestruj"/></a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

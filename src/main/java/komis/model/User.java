@@ -8,20 +8,20 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseModel{
+public class User extends BaseModel {
 
     @Column(unique = true)
     private String login;
     private String password;
-
     private String email;
-
     @JoinColumn(name = "personId")
     @OneToOne
     private Person personId;
 
     @ManyToMany
-    @JoinColumn(name = "user_roles")
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> role;
 
     public String getLogin() {

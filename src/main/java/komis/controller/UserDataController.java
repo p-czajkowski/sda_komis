@@ -26,7 +26,7 @@ public class UserDataController {
     @RequestMapping("/login")
     public String loginToService(Model model){
         model.addAttribute("user", new User());
-        return "login";
+        return "pages/loginPage";
     }
 
     @RequestMapping("komis/logout")
@@ -39,7 +39,7 @@ public class UserDataController {
 
         model.addAttribute("createUser", new UserDto());
 
-        return "createAccount";
+        return "pages/createAccount";
     }
 
 
@@ -48,7 +48,7 @@ public class UserDataController {
             @Valid @ModelAttribute("createUser") UserDto userDto,
             BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "/login";
+            return "pages/loginPage";
         }
         User user = new User();
         user.setLogin(userDto.getLogin());
