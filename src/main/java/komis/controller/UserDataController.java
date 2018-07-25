@@ -39,7 +39,7 @@ public class UserDataController {
 
         model.addAttribute("createUser", new UserDto());
 
-        return "pages/createAccount";
+        return "pages/createUserPage";
     }
 
 

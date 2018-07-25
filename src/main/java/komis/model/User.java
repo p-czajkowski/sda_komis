@@ -18,11 +18,11 @@ public class User extends BaseModel {
     @OneToOne
     private Person personId;
 
-    @ManyToMany
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> role;
+//    @ManyToMany
+//    @JoinTable(name = "user_roles",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    private Set<Role> role;
 
     public String getLogin() {
         return login;
@@ -56,11 +56,11 @@ public class User extends BaseModel {
         this.personId = personId;
     }
 
-    public Set<Role> getRole() {
-        return role;
-    }
-
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
+//    public Set<Role> getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(Set<Role> role) {
+//        this.role = role;
+//    }
 }

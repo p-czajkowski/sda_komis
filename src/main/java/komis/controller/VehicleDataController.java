@@ -53,7 +53,7 @@ public class VehicleDataController {
         List<VehicleType> allVehicleTypes = vehicleDataService.getAllVehicleTypes();
         model.addAttribute("allVehicleTypes", allVehicleTypes);
 
-        return "addVehicle";
+        return "pages/addVehiclePage";
     }
 
     @PostMapping("/new")
