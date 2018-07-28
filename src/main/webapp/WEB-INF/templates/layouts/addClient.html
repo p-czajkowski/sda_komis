@@ -1,0 +1,24 @@
+<div data-th-fragment="addClient">
+
+    <div class="row">
+
+        <form data-th-action="@{/addClient}" data-th-object="${createClient}" data-th-method="POST">
+
+            <div class="col-3-sm">
+                <div>Imię</div>
+                <div>Nazwisko</div>
+                <div>Adres</div>
+                <div>PESEL</div>
+                <div>NIP</div>
+            </div>
+            <div class="col-6-sm">
+                <div><input type="text" data-th-field="*{name}"/></div>
+                <div><input type="text" data-th-field="*{lastName}"/></div>
+                <div><input type="text" data-th-field="*{adress}"/></div>
+                <div><input type="text" data-th-field="*{pesel}"/></div>
+                <div><input type="text" data-th-field="*{nip}"/></div>
+                <div><input type="submit" class="btn btn-primary btn-sm" value="Dodaj"/></div>
+            </div>
+        </form>
+    </div>
+</div>

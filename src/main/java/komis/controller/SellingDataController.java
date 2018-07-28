@@ -40,16 +40,17 @@ public class SellingDataController {
         purchaseDto.setVehicleId(vehicleId);
         model.addAttribute("vehicleId", vehicleToBeSold);
         model.addAttribute("soldVehicle", purchaseDto);
-        return new ModelAndView("sellVehicle",model);
+
+        return new ModelAndView("pages/sellVehiclePage",model);
     }
 
     @PostMapping("/sellVehicle")
     public String sellVehicle(
             @Valid @ModelAttribute("soldVehicle")PurchaseDto purchaseDto,
-            BindingResult bindingResult, PersonDto personDto){
+            BindingResult bindingResult){
 
         if(bindingResult.hasErrors()) {
-            return "sellVehicle";
+            return "pages/sellVehiclePage";
         }
 
         Person person = new Person();

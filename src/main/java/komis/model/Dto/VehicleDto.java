@@ -2,13 +2,18 @@ package komis.model.Dto;
 
 import komis.model.Model;
 
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class VehicleDto {
 
+    private Integer id;
     private Integer vehicleType;
     @NotNull
+    @Size(min = 5, message = "podaj VIN")
     private String vin;
     private Integer productionYear;
     private Integer manufacturer;
@@ -25,9 +30,16 @@ public class VehicleDto {
     private boolean sold;
     private Integer buyPrice;
     @NotNull
-    @DecimalMin(value = "5000", message = "Minimalna kwota to 5000zł")
+    @Min(value = 5000, message = "Minimalna kwota to 5000zł")
     private Integer sellPrice;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getSellPrice() {
         return sellPrice;

@@ -1,0 +1,50 @@
+<!--<h1 th:text="'Sprzedajesz: ' + ${soldVehicle.vehicle.manufacturer.name} + ' ' + ${soldVehicle.vehicle.model.name}">-->
+<!--</h1>-->
+<div data-th-fragment="sellVehicle">
+    <div style="font-size: 20px; padding-bottom: 15px;"
+         data-th-text="'Sprzedajesz ' + ${soldVehicle.vehicle.manufacturer.name}
+          + ' ' + ${soldVehicle.vehicle.model.name}">
+    </div>
+
+    <div style="text-align: center;">
+        <form data-th-action="@{/sells/sellVehicle}" data-th-object="${soldVehicle}" data-th-method="POST">
+            <input type="hidden" data-th-field="*{vehicleId}"/>
+            <table>
+
+                <tr>
+                    <td>Cena</td>
+                    <td><input class="form-control" type="text" data-th-field="*{vehicle.sellPrice}"/></td>
+                    <!--${soldVehicle.vehicle.sellPrice}"/></td>-->
+
+                </tr>
+                <tr>
+                    <td>Adres klienta:</td>
+                    <td><input class="form-control" type="text" data-th-field="*{adress}"/></td>
+                </tr>
+                <tr>
+                    <td>Imię klienta</td>
+                    <td><input class="form-control" type="text" data-th-field="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td>Nazwisko klienta</td>
+                    <td><input class="form-control" type="text" data-th-field="*{lastName}"/></td>
+                </tr>
+                <tr>
+                    <td>pesel</td>
+                    <td><input class="form-control" type="text" data-th-field="*{pesel}"/></td>
+                </tr>
+                <tr>
+                    <td>nip</td>
+                    <td><input class="form-control" type="text" data-th-field="*{nip}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Sprzedaj samochód">
+                        </input>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</div>

@@ -36,7 +36,7 @@ public class VehicleDataController {
         if (vehicleId != null) {
             model.addAttribute("vehicle", vehicle);
         }
-        return "pages/vehicleDetails";
+        return "pages/vehicleDetailsPage";
     }
 
     @GetMapping("/new")

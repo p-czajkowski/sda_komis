@@ -1,114 +1,100 @@
 <div data-th-fragment="addVehicle">
-<div id="content">
+<div class="container">
 <h4 style="text-align: center">Dodaj samochód</h4>
     <form data-th-action="@{/komis/new}" data-th-object="${addedVehicle}" data-th-method="POST">
-        <table>
-            <tr>
-                <td>Marka</td>
-                <td>
-                    <select data-th-field="*{manufacturer}" name="manufacturer" class="form-control">
-                        <option value="">wybierz z listy</option>
-                        <option data-th-each="manufacturer : ${allManufacturers}"
-                                data-th-value="${manufacturer.id}"
-                                data-th-text="${manufacturer.name}">name</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Model</td>
-                <td><input type="text" data-th-field="*{model.name}"/></td>
-            </tr>
-            <tr>
-                <td>Paliwo</td>
-                <td>
-                    <select data-th-field="*{fuel}" name="fuel" class="form-control">
-                        <option value="">wybierz...</option>
-                        <option data-th-each="fuel : ${allFuels}"
-                                data-th-value="${fuel.id}"
-                                data-th-text="${fuel.fuelType}">fuelType</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Rok produkcji</td>
-                <td><input type="text" data-th-field="*{productionYear}"/></td>
-            </tr>
-            <tr>
-                <td>Rodzaj nadwozia</td>
-                <td>
-                    <!--<input type="text" th:field="*{fuel.fuelType}"/>-->
-                    <select data-th-field="*{vehicleType}" name="vehicleType" class="form-control">
-                        <option value="">wybierz...</option>
-                        <option data-th-each="vehicleType : ${allVehicleTypes}"
-                                data-th-value="${vehicleType.id}"
-                                data-th-text="${vehicleType.type}">vehicleType</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Przebieg</td>
-                <td><input type="text" data-th-field="*{mileage}"/></td>
-            </tr>
-            <tr>
-                <td>Silnik</td>
-                <td><input type="text" data-th-field="*{engine}"/></td>
-            </tr>
-            <tr>
-                <td>Moc (KM)</td>
-                <td><input type="text" data-th-field="*{power}"/></td>
-            </tr>
-            <tr>
-                <td>Skrzynia biegów</td>
-                <td>
-                    <select data-th-field="*{transmission}" name="transmission" class="form-control">
-                        <option value="">wybierz...</option>
-                        <option data-th-each="transmission : ${allTransmissions}"
-                                data-th-value="${transmission.id}"
-                                data-th-text="${transmission.name}">name
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Nr rejestracji</td>
-                <td><input type="text" data-th-field="*{carRegistration}"/></td>
-            </tr>
-            <tr>
-                <td>VIN</td>
-                <td><input type="text" data-th-field="*{vin}"/>
-                    <span th:if="${#fields.hasErrors('vin')}" th:errors="*{vin}"/> </td>
-            </tr>
-            <!--<tr>-->
-            <!--<td>Typ</td>-->
-            <!--<td><input type="text" th:field="*{vehicleType.type}"/></td>-->
-            <!--</tr>-->
-            <tr>
-                <td>Nr OC</td>
-                <td><input type="text" data-th-field="*{insuranceNumber}"/></td>
-            </tr>
-            <tr>
-                <td>Opis</td>
-                <td><input type="text" data-th-field="*{description}"/></td>
-            </tr>
-            <tr>
-                <td>Ilość jazd próbnych</td>
-                <td><input type="text" data-th-field="*{testDrives}"/></td>
-            </tr>
-            <tr>
-                <td>Cena odkupu</td>
-                <td><input type="text" data-th-field="*{buyPrice}"/></td>
-            </tr>
-            <tr>
-                <td>Cena sprzedaży</td>
-                <td><input type="text" data-th-field="*{sellPrice}"/>
-                    <span th:if="${#fields.hasErrors('sellPrice')}" th:errors="*{sellPrice}"/></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Dodaj pojazd"/>
-                </td>
-            </tr>
-        </table>
+       <div class="row">
+           <div class="col-sm-3">
+               <div class="list" >Marka:</div>
+               <div class="list" >Model:</div>
+               <div class="list" >Paliwo:</div>
+               <div class="list" >Rok produkcji:</div>
+               <div class="list" >Rodzaj nadwozia:</div>
+               <div class="list" >Przebieg:</div>
+               <div class="list" >Silnik:</div>
+               <div class="list" >Moc (KM):</div>
+               <div class="list" >Skrzynia biegów:</div>
+               <div class="list" >Nr rejestracji:</div>
+               <div class="list" >VIN:</div>
+               <div class="list" >Nr OC:</div>
+               <div class="list" >Marka:</div>
+               <div class="list" >Cena odkupu:</div>
+               <div class="list" >Cena sprzedaży:</div>
+               <div class="list" >Opis:</div>
+           </div>
+           <div class="col-sm-5" style="width: 450px; border-radius: 10px; text-align: center">
+               <div><select data-th-field="*{manufacturer}" name="manufacturer" class="form-control">
+                   <option value="">marka</option>
+                   <option data-th-each="manufacturer : ${allManufacturers}"
+                           data-th-value="${manufacturer.id}"
+                           data-th-text="${manufacturer.name}">name</option></select>
+               </div>
+               <div><input type="text" data-th-field="*{model.name}" placeholder="model" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='model'"/></div>
+               <div><select data-th-field="*{fuel}" name="fuel" class="form-control">
+                   <option value="">paliwo</option>
+                   <option data-th-each="fuel : ${allFuels}"
+                           data-th-value="${fuel.id}"
+                           data-th-text="${fuel.fuelType}">fuelType</option>
+               </select></div>
+               <div><input type="text" data-th-field="*{productionYear}" placeholder="rok produkcji" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='rok produkcji'"/></div>
+               <div><select data-th-field="*{vehicleType}" name="vehicleType" class="form-control">
+                   <option value="">rodzaj nadwozia</option>
+                   <option data-th-each="vehicleType : ${allVehicleTypes}"
+                           data-th-value="${vehicleType.id}"
+                           data-th-text="${vehicleType.type}">vehicleType</option>
+               </select></div>
+               <div><input type="text" style="width: 100%" data-th-field="*{mileage}" placeholder="przebieg" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='przebieg'"/></div>
+               <div><input type="text" data-th-field="*{engine}" placeholder="silnik" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='silnik'"/></div>
+               <div><input type="text" data-th-field="*{power}" placeholder="moc (KM)" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='moc (KM)'"/></div>
+               <div><select data-th-field="*{transmission}" name="transmission" class="form-control">
+                   <option value="">rodzaj skrzyni biegów</option>
+                   <option data-th-each="transmission : ${allTransmissions}"
+                           data-th-value="${transmission.id}"
+                           data-th-text="${transmission.name}">name
+                   </option>
+               </select></div>
+               <div><input type="text" data-th-field="*{carRegistration}" placeholder="nr rejestracji" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='nr rejsetracji'"/></div>
+               <div><input type="text" data-th-field="*{vin}" placeholder="VIN" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='VIN'"/>
+                   <span data-th-if="${#fields.hasErrors('vin')}" data-th-errors="*{vin}"/></div>
+               <div><input type="text" data-th-field="*{insuranceNumber}" placeholder="nr OC" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='nr OC'"/></div>
+               <div><input type="text" data-th-field="*{testDrives}" placeholder="ilość jazd próbnych" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='ilość jazd próbnych'"/></div>
+               <div><input type="text" data-th-field="*{buyPrice}" placeholder="cena odkupu" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='cena odkupu'"/></div>
+               <div><input type="text" data-th-field="*{sellPrice}" placeholder="cena sprzedaży" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='cena sprzedaży'"/>
+                   </div>
+
+               <div><input type="text" data-th-field="*{description}" placeholder="dodatkowe informacje" onfocus="this.placeholder=''"
+                   onblur="this.placeholder='dodatkowe informacje'"/></div>
+               <div><input type="submit" class="btn btn-primary btn-sm" value="Dodaj pojazd"/></div>
+           </div>
+           <div class="col-1-sm">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div><span data-th-if="${#fields.hasErrors('sellPrice')}" data-th-errors="*{sellPrice}"/></div>
+               <div></div>
+           </div>
+       </div>
     </form>
 </div>
 </div>

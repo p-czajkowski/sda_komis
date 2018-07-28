@@ -1,5 +1,5 @@
 <div data-th-fragment="navigation" xmlns="http://www.w3.org/1999/html">
-    <div class="containter">
+    <div class="containter" style="padding-bottom: 30px;">
         <div>
             <h4 style="text-align: center" data-th-text="Menu"></h4>
             <a data-th-href="@{/komis/list}">
@@ -7,7 +7,7 @@
                     Strona główna
                 </button>
             </a>
-            <a data-th-href="@{komis/list}">
+            <a data-th-href="@{/komis/list}">
                 <button type="button" class="btn btn-primary btn-sm btn-block">
                     Samochody
                 </button>
@@ -31,20 +31,20 @@
                     Dodaj samochód
                 </button>
             </a>
-            <a data-th-href="@{/createAccount}">
+            <a data-th-href="@{/addClient}">
                 <button type="button" class="btn btn-primary btn-sm btn-block">
-                    Dodaj użytkownika
+                    Dodaj klienta
                 </button>
             </a>
         </div>
         <div>
             <h4 style="text-align: center">Panel menedżera</h4>
-            <a data-th-href="@{/komis/new}">
+            <a data-th-href="@{/reports/soldReport}">
                 <button type="button" class="btn btn-primary btn-sm btn-block">
                     Raport sprzedaży
                 </button>
             </a>
-            <a data-th-href="@{/createAccount}">
+            <a data-th-href="@{/reports/boughtReport}">
                 <button type="button" class="btn btn-primary btn-sm btn-block">
                     Raport kupna
                 </button>

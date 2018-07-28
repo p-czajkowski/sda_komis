@@ -43,6 +43,7 @@ public class Vehicle extends BaseModel {
     private boolean sold;
     @Column()
     private Integer buyPrice;
+    @Column
     private Integer sellPrice;
 
     public Integer getSellPrice() {
@@ -180,4 +181,6 @@ public class Vehicle extends BaseModel {
     public void setBuyPrice(Integer price) {
         this.buyPrice = price;
     }
+
+
 }

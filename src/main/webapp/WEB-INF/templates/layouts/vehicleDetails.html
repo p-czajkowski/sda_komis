@@ -1,0 +1,39 @@
+<div data-th-fragment="vehicleDetails">
+        <h1>Szczegóły samochodu</h1>
+
+        <table data-th-object="${vehicle}">
+            <tr><td>Id</td>
+                <td data-th-text="${vehicle.id}"/></tr>
+            <tr><td>Nr VIN</td>
+                <td data-th-text="${vehicle.vin}"/></tr>
+            <tr><td>Rocznik</td>
+                <td data-th-text="${vehicle.productionYear}"/></tr>
+            <tr><td>Marka</td>
+                <td data-th-text="${vehicle.manufacturer.name}"/></tr>
+            <tr><td>Model</td>
+                <td data-th-text="${vehicle.model.name}"/></tr>
+            <tr><td>Numer OC</td>
+                <td data-th-text="${vehicle.insuranceNumber}"/></tr>
+            <tr><td>Nr dowodu rej.</td>
+                <td data-th-text="${vehicle.carRegistration}"/></tr>
+            <tr><td>Typ paliwa</td>
+                <td data-th-text="${vehicle.fuel.fuelType}"/></tr>
+            <tr><td>Przebieg</td>
+                <td data-th-text="${vehicle.mileage}"/></tr>
+            <tr><td>Silnik</td>
+                <td data-th-text="${vehicle.engine}"/></tr>
+            <tr><td>Skrzynia biegów</td>
+                <td data-th-text="${vehicle.transmission.name}"/></tr>
+            <tr><td>Opis</td>
+                <td data-th-text="${vehicle.description}"/></tr>
+            <tr><td>Ilość jazd próbnych</td>
+                <td data-th-text="${vehicle.testDrives}"/></tr>
+            <tr>
+                <td>Cena</td>
+                <td data-th-text="${vehicle.sellPrice}"/>
+            </tr>
+        </table>
+
+        <a data-th-href="@{/komis/list}" data-th-text="Powrót"></a>
+        <a data-th-href="@{'/sells/'+${vehicle.id}+'/sell/'}" data-th-text="Sprzedaż"></a>
+</div>

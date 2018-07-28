@@ -8,9 +8,5 @@ public interface SellingService {
 
     Purchase sellVehicle(Integer vehicleId, Person personId, Integer price);
 
-    Person getById(Integer personId);
-    Person getPersonByPesel(Integer pesel);
-//    Vehicle getBySellPrice(Integer sellPrice);
-
 }
 

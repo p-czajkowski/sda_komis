@@ -21,6 +21,10 @@ public interface VehicleDataService {
 
     VehicleType getVehicleTypeById(Integer id);
     List<VehicleType> getAllVehicleTypes();
+    ;
+    List<Vehicle> getAllVehicles();
 
-
+    public List<Vehicle> showBoughtVehicles();
+    public List<Vehicle> showSoldVehicles();
+    public List<Vehicle> showAvailableVehicles();
 }

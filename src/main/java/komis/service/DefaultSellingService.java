@@ -48,20 +48,4 @@ public class DefaultSellingService implements SellingService {
 
         return purchase;
     }
-
-
-    @Override
-    public Person getById(Integer personId) {
-
-        return personRepository.findOne(personId);
-    }
-
-    @Override
-    public Person getPersonByPesel(Integer pesel) {
-        return personRepository.findOne(pesel);
-    }
-
-
-
-
 }

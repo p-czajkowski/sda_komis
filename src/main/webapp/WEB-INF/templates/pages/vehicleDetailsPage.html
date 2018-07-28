@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head data-th-replace="fragments/head :: head">
 </head>
 <body>
 
 <div class="container">
     <div data-th-replace="fragments/header :: header"></div>
-
     <div class="row">
         <div class="col-sm-3">
             <div data-th-replace="fragments/navigation :: navigation"/>
         </div>
         <div class="col-sm-9">
-            <div data-th-replace="layouts/vehicleList :: vehicleList"/>
+            <div data-th-replace="layouts/vehicleDetails :: vehicleDetails"/>
         </div>
     </div>
-
     <div data-th-replace="fragments/footer :: footer"></div>
-
 </div>
 </body>
 </html>
